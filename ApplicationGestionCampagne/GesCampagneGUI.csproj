@@ -52,6 +52,12 @@
     <Compile Include="FrmAjoutCampagne.Designer.cs">
       <DependentUpon>FrmAjoutCampagne.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAjoutEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAjoutEvent.Designer.cs">
+      <DependentUpon>FrmAjoutEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmAjoutCampagne.resx">
