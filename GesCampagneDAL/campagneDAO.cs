@@ -51,14 +51,30 @@ namespace GesCampagneDAL
             maCommand.Connection = cnx;
             //maCommand.CommandType = CommandType.StoredProcedure;
             //maCommand.CommandText = "lenomdelaprocedure";
-            maCommand.CommandText = "";
-
 
             maCommand.Parameters.Clear();
+            maCommand.CommandText = "select count(*) from Campagne where intitule=@intitule and objectif=@objectif";
+            maCommand.Parameters.Add("intitule", System.Data.SqlDbType.VarChar);
+            maCommand.Parameters[0].Value = uneCampagne.Intitule;
+            maCommand.Parameters.Add("objectif", System.Data.SqlDbType.VarChar);
+            maCommand.Parameters[1].Value = uneCampagne.Objectif;
+
+            int nbRet = (int)maCommand.ExecuteScalar();
+
+            if (nbRet>0)
+            {
+                AccesBD.GetInstance().CloseConnection();
+                return 0;
+            }
+            else
+            {
+                maCommand.Parameters.Clear();
+                maCommand.CommandText = "";
 
 
 
 
+            }
 
 
 
