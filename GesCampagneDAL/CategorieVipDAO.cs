@@ -7,7 +7,7 @@ using GesCampagneBO;
 
 namespace GesCampagneDAL
 {
-    class CategorieVipDAO
+    public class CategorieVipDAO
     {
         private static CategorieVipDAO uneInstanceCategorieVipDAO;
 
@@ -25,7 +25,22 @@ namespace GesCampagneDAL
             string libelleLu;
             SqlDataReader monLecteur;
 
-            SqlConnection cnx = access
+            SqlConnection cnx = AccesBD.GetInstance().GetSqlConnexion();
+            List<CategorieVip> lesCategoriesVip = new List<CategorieVip>();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = cnx;
+            cmd.CommandText = "spSelectCategoriesVip";
+            monLecteur = cmd.ExecuteReader();
+
+            while(monLecteur.Read())
+            {
+                idLu = (int)monLecteur["id"];
+                libelleLu = (string)monLecteur["libelle"];
+                CategorieVip uneCategorieVip = new CategorieVip(idLu, libelleLu);
+                lesCategoriesVip.Add(uneCategorieVip);
+            }
+            return lesCategoriesVip;
         }
     }
+
 }
