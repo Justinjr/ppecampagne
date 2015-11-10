@@ -47,9 +47,27 @@ namespace GesCampagneDAL
         public int AjoutCampagne(Campagne uneCampagne)
         {
             SqlConnection cnx = AccesBD.GetInstance().GetSqlConnexion();
-
-            List<Campagne> lesCampagnes = new List<Campagne>();
             SqlCommand maCommand = new SqlCommand();
+            maCommand.Connection = cnx;
+            //maCommand.CommandType = CommandType.StoredProcedure;
+            //maCommand.CommandText = "lenomdelaprocedure";
+            maCommand.CommandText = "";
+
+
+            maCommand.Parameters.Clear();
+
+
+
+
+
+
+
+
+
+
+
+
+            
         }
 
 
