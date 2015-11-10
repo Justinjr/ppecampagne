@@ -14,6 +14,8 @@ namespace ApplicationGestionCampagne
         public FrmAjoutCampagne()
         {
             InitializeComponent();
+
+
         }
     }
 }
