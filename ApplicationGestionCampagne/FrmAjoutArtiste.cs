@@ -15,5 +15,24 @@ namespace ApplicationGestionCampagne
         {
             InitializeComponent();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void btnAjoutArtiste_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

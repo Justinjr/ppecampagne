@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 
-namespace GesClientDAL
+namespace GesCampagneDAL
 {
     public class AccesBD
     {
@@ -13,7 +13,7 @@ namespace GesClientDAL
         private string laChaineConnexion;
 
         //retourne la chaine de connexion
-        public string getChaine()
+        public string GetChaine()
         {
             return laChaineConnexion;
         }
@@ -27,7 +27,7 @@ namespace GesClientDAL
         //methode s'appelle un singleton
         //cree un obj instance de la classe accesbd
         //s'il n'existe pas puis retourn la référence à cet objet
-        public static AccesBD getInstance()
+        public static AccesBD GetInstance()
         {
             if (uneInstance == null)
             {
@@ -45,7 +45,7 @@ namespace GesClientDAL
         }
 
         //cette methode permet d'obtenir l'objet responsable de la connexion a la bdd
-        public SqlConnection getSqlConnexion()
+        public SqlConnection GetSqlConnexion()
         {
             //on cree un objet responsable de la connexion a la bd
             if (objConnex == null)

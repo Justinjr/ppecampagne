@@ -30,9 +30,9 @@ namespace GesCampagneDAL
         //existant dans la table Client
         public List<Artiste> GetArtistes()
         {
-            int idLu;
             string nomLu;
             string siteWebLu;
+            Courant courantLu;
             SqlDataReader monLecteur;
 
             //on recupere l'objet responsable de la connexion à la base
@@ -55,11 +55,11 @@ namespace GesCampagneDAL
             while (monLecteur.Read())
             {
                 //on récupère le nom et le numéro de l'employe
-                idLu = (int)monLecteur["id"];
                 nomLu = (string)monLecteur["nom"];
                 siteWebLu = (string)monLecteur["siteWeb"];
+                courantLu = (Courant)monLecteur["Courant"];
 
-                Artiste unClient = new Artiste(idLu, nomLu, siteWebLu);
+                Artiste unClient = new Artiste(nomLu, siteWebLu , courantLu);
                 lesArtistes.Add(unArtiste);
             }
             AccesBD.GetInstance().CloseConnection();
@@ -85,10 +85,6 @@ namespace GesCampagneDAL
 
             monLecteur = maCommand.ExecuteReader();
 
-            //declarer un tableau
-            tableArtiste = new DataTable();
-            tableArtiste.Load(monLecteur);
-
             int nb = (int)maCommand.ExecuteScalar();
 
             if (nb == 0)
@@ -98,6 +94,10 @@ namespace GesCampagneDAL
 
                 maCommand.Parameters.Add("nom", System.Data.SqlDbType.VarChar);
                 maCommand.Parameters[0].Value = unArtiste.Nom;
+                maCommand.Parameters.Add("siteWeb", System.Data.SqlDbType.VarChar);
+                maCommand.Parameters[1].Value = unArtiste.SiteWeb;
+                maCommand.Parameters.Add("Courant", System.Data.SqlDbType.Courant);
+                maCommand.Parameters[2].Value = unArtiste.UnCourant;
 
                 nbLigne = maCommand.ExecuteNonQuery();
             }
