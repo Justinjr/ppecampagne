@@ -7,15 +7,17 @@ using GesCampagneBO;
 
 namespace GesCampagneDAL
 {
-    class EventDAO
+    public class EventDAO
     {
 
         private DateTime dateDebut;
         private DateTime dateFin;
         private string theme;
-       
 
-
+        public object GetInstanceDAOClient()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     

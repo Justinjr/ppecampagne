@@ -50,6 +50,12 @@
     <Compile Include="PublicDAO.cs" />
     <Compile Include="VilleDAO.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GesCampagneBO\GesCampagneBO.csproj">
+      <Project>{20bbfdf6-74fc-4eed-baf8-1d3a37216ff2}</Project>
+      <Name>GesCampagneBO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -11,7 +11,7 @@ using GesCampagneDAL;
 
 namespace GesCampagneBLL
 {
-    class EventManager
+    public class EventManager
     {
 
         private static EventManager uneInstanceCliManag;

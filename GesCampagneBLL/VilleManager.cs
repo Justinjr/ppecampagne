@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GesCampagneBLL
 {
-    class VilleManager
+    public class VilleManager
     {
     }
 }

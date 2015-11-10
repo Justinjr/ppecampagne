@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GesCampagneBO
 {
-    class Ville
+    public class Ville
     {
         private string libelle;
         private int numInsee;

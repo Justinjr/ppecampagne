@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GesCampagneBO
 {
-    class Public
+    public class Public
     {
         private int id;
         private string libelle;

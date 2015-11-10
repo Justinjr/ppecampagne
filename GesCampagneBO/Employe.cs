@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GesCampagneBO
 {
-    class Employe
+    public class Employe
     {
         int id;
         string nom;

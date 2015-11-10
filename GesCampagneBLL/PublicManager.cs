@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GesCampagneBLL
 {
-    class PublicManager
+    public class PublicManager
     {
     }
 }

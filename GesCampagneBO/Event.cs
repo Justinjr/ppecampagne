@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using GesCampagneBO;
 
 namespace GesCampagneBO
 {
@@ -11,8 +12,17 @@ namespace GesCampagneBO
         private string theme;
         private DateTime dateDebut;
         private DateTime dateFin;
-        //private Ville laVille;
-        //private Campagne laCampagne;
+        private string sonNom;
+        private string sonPrenom;
+
+        public Event(string sonNom, string sonPrenom)
+        {
+            this.sonNom = sonNom;
+            this.sonPrenom = sonPrenom;
+        }
+
+        private Ville laVille;
+        private Campagne laCampagne;
 
 
         public int Id
@@ -41,14 +51,14 @@ namespace GesCampagneBO
             set { dateFin = value; }
         }
 
-        public Evenement(int id,string theme,DateTime dateDebut,DateTime dateFin)//Ville laVille,Campagne laCampagne)
+        public Event(int id,string theme,DateTime dateDebut,DateTime dateFin,Ville laVille,Campagne laCampagne)
         {
             this.id = id;
             this.theme = theme;
             this.dateDebut = dateDebut;
             this.dateFin = dateFin;
-            //this.laVille=laVille;
-            //this.laCampagne=laCampagne;
+            this.laVille=laVille;
+            this.laCampagne=laCampagne;
         }
 
         public Evenement(string theme, DateTime dateDebut, DateTime dateFin)//Ville laVille,Campagne laCampagne)
