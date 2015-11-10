@@ -7,5 +7,6 @@ namespace GesCampagneDAL
 {
     class ArtisteDAO
     {
+
     }
 }
