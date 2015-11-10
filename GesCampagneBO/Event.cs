@@ -25,6 +25,8 @@ namespace GesCampagneBO
         private Campagne laCampagne;
 
 
+
+
         public int Id
         {
             get { return id; }
@@ -51,14 +53,40 @@ namespace GesCampagneBO
             set { dateFin = value; }
         }
 
+        public Ville LaVille
+        {
+            get
+            {
+                return laVille;
+            }
+
+            set
+            {
+                laVille = value;
+            }
+        }
+
+        public Campagne LaCampagne
+        {
+            get
+            {
+                return laCampagne;
+            }
+
+            set
+            {
+                laCampagne = value;
+            }
+        }
+
         public Event(int id,string theme,DateTime dateDebut,DateTime dateFin,Ville laVille,Campagne laCampagne)
         {
             this.id = id;
             this.theme = theme;
             this.dateDebut = dateDebut;
             this.dateFin = dateFin;
-            this.laVille=laVille;
-            this.laCampagne=laCampagne;
+            this.LaVille=laVille;
+            this.LaCampagne=laCampagne;
         }
 
         public Event(string theme, DateTime dateDebut, DateTime dateFin,Ville laVille,Campagne laCampagne)
@@ -66,8 +94,8 @@ namespace GesCampagneBO
             this.theme = theme;
             this.dateDebut = dateDebut;
             this.dateFin = dateFin;
-            this.laVille=laVille;
-            this.laCampagne=laCampagne;
+            this.LaVille=laVille;
+            this.LaCampagne=laCampagne;
         }
 
 

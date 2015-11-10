@@ -6,6 +6,7 @@ using GesCampagneBO;
 using System.Configuration;
 using GesCampagneDAL;
 using System.Data.SqlClient;
+using System.Data;
 
 
 namespace GesCampagneDAL
@@ -15,7 +16,7 @@ namespace GesCampagneDAL
 
         private DateTime dateDebut;
         private DateTime dateFin;
-        private string theme;
+        
         private static EventDAO uneInstanceEventDAO;
 
         public static EventDAO GetInstanceDAOEvent()
@@ -33,14 +34,14 @@ namespace GesCampagneDAL
 
 
             //recup l'objet responsable de la connexion a la base
-            SqlConnection cnx = AccesBD.getInstance().getSqlConnexion();
+            SqlConnection cnx = AccesBD.GetInstance().GetSqlConnexion();
             SqlCommand maCommand = new SqlCommand();
 
 
             maCommand.Connection = cnx;
             maCommand.Parameters.Clear();
 
-            maCommand.CommandText = "select Count(*) from Client where nom=@nom and prenom=@prenom ";
+            maCommand.CommandText = "select Count(*) from Evenement where nom=@nom and prenom=@prenom ";
             maCommand.Parameters.Add("nom", System.Data.SqlDbType.VarChar);
             maCommand.Parameters[0].Value = unEvent.Nom;
             maCommand.Parameters.Add("prenom", System.Data.SqlDbType.VarChar);
@@ -50,23 +51,29 @@ namespace GesCampagneDAL
 
             if (nb > 0)
             {
-                AccesBD.getInstance().CloseConnection();
+                AccesBD.GetInstance().CloseConnection();
                 return 0;
             }
             else
             {
                 maCommand.Parameters.Clear();
-                maCommand.CommandText = "insert into Evenement values(@nom,@prenom)";
+                //maCommand.CommandText = "insert into Evenement values(@theme,@Campagne,@dateDebut,@dateFin,@Ville)";
 
 
-                maCommand.Parameters.Add("nom", System.Data.SqlDbType.VarChar);
-                maCommand.Parameters[0].Value = unEvent.Nom;
-                maCommand.Parameters.Add("prenom", System.Data.SqlDbType.VarChar);
-                maCommand.Parameters[1].Value = unEvent.Prenom;
+                maCommand.Parameters.Add("theme", System.Data.SqlDbType.VarChar);
+                maCommand.Parameters[0].Value = unEvent.Theme;
+                maCommand.Parameters.Add("dateDebut", System.Data.SqlDbType.VarChar);
+                maCommand.Parameters[2].Value = unEvent.DateDebut;
+                maCommand.Parameters.Add("dateFin", System.Data.SqlDbType.VarChar);
+                maCommand.Parameters[3].Value = unEvent.DateFin;
+                maCommand.Parameters.Add("idCampagne", System.Data.SqlDbType.VarChar);
+                maCommand.Parameters[1].Value = unEvent.LaCampagne.Intitule;
+                maCommand.Parameters.Add("idVille", System.Data.SqlDbType.VarChar);
+                maCommand.Parameters[4].Value = unEvent.LaVille.Libelle;
 
-                int nbEnregAjout = maCommand.ExecuteNonQuery();
-                AccesBD.getInstance().CloseConnection();
-                return nbEnregAjout;
+                int eventAjout = maCommand.ExecuteNonQuery();
+                AccesBD.GetInstance().CloseConnection();
+                return eventAjout;
 
 
             }
