@@ -7,6 +7,7 @@ namespace GesCampagneBO
 {
     public class Campagne
     {
+
         private int id;
         private string intitule;
         private string objectif;
