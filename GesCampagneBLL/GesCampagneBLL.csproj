@@ -48,6 +48,12 @@
     <Compile Include="PublicManager.cs" />
     <Compile Include="VilleManager.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GesCampagneDAL\GesCampagneDAL.csproj">
+      <Project>{3d043c36-24ee-4ed7-a324-748ff3eb93d6}</Project>
+      <Name>GesCampagneDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
