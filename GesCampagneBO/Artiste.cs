@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace GesCampagneDAL
+namespace GesCampagneBO
 {
-    class EventDAO
+    class Artiste
     {
     }
 }

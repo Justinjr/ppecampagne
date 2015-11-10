@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace GesCampagneDAL
+namespace GesCampagneBLL
 {
-    class EventDAO
+    public class CampagneManager
     {
     }
 }

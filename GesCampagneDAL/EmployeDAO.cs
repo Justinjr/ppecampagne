@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GesCampagneDAL
 {
-    class EventDAO
+    class EmployeDAO
     {
     }
 }

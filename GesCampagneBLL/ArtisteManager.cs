@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GesCampagneBLL
 {
-    public class Class1
+    class ArtisteManager
     {
     }
 }
