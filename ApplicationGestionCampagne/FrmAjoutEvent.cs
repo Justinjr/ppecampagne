@@ -15,5 +15,10 @@ namespace ApplicationGestionCampagne
         {
             InitializeComponent();
         }
+
+        private void FrmAjoutEvent_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

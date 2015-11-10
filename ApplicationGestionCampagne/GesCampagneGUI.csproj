@@ -63,6 +63,9 @@
     <EmbeddedResource Include="FrmAjoutCampagne.resx">
       <DependentUpon>FrmAjoutCampagne.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAjoutEvent.resx">
+      <DependentUpon>FrmAjoutEvent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
