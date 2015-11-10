@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GesCampagneDAL
 {
-    class PulbicDAO
+    class PublicDAO
     {
     }
 }

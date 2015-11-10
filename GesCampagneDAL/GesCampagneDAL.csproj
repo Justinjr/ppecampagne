@@ -46,7 +46,7 @@
     <Compile Include="EmployeDAO.cs" />
     <Compile Include="EventDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PulbicDAO.cs" />
+    <Compile Include="PublicDAO.cs" />
     <Compile Include="VilleDAO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
