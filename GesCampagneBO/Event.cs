@@ -26,14 +26,14 @@ namespace GesCampagneBO
             get { return theme; }
             set { theme = value; }
         }
-
+       
 
         public DateTime DateDebut
         {
             get { return dateDebut; }
             set { dateDebut = value; }
         }
-
+       
 
         public DateTime DateFin
         {
@@ -41,7 +41,7 @@ namespace GesCampagneBO
             set { dateFin = value; }
         }
 
-        public Evenement(int id, string theme, DateTime dateDebut, DateTime dateFin)//Ville laVille,Campagne laCampagne)
+        public Evenement(int id,string theme,DateTime dateDebut,DateTime dateFin)//Ville laVille,Campagne laCampagne)
         {
             this.id = id;
             this.theme = theme;

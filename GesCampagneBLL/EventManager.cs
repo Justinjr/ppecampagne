@@ -10,6 +10,6 @@ namespace GesCampagneBLL
     class EventManager
     {
 
-      
+       
     }
 }
