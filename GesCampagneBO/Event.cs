@@ -61,13 +61,13 @@ namespace GesCampagneBO
             this.laCampagne=laCampagne;
         }
 
-        public Evenement(string theme, DateTime dateDebut, DateTime dateFin)//Ville laVille,Campagne laCampagne)
+        public Event(string theme, DateTime dateDebut, DateTime dateFin,Ville laVille,Campagne laCampagne)
         {
             this.theme = theme;
             this.dateDebut = dateDebut;
             this.dateFin = dateFin;
-            //this.laVille=laVille;
-            //this.laCampagne=laCampagne;
+            this.laVille=laVille;
+            this.laCampagne=laCampagne;
         }
 
 

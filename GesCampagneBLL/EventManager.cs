@@ -37,7 +37,7 @@ namespace GesCampagneBLL
         //appel de la couche DAL pour recup une collectionn de client
         public List<Event> GetClients()
         {
-            return EventDAO.GetInstanceDAOClient().GetClients();
+            return EventDAO.GetInstanceDAOEvent().GetClients();
         }
 
         //appel de la couche DAL pour creer un new client
@@ -45,7 +45,7 @@ namespace GesCampagneBLL
         {
             Event leClient;
             leClient = new Event(sonNom, sonPrenom);
-            return EventDAO.GetInstanceDAOClient().AjoutClient(leClient);
+            return EventDAO.GetInstanceDAOEvent().AjoutClient(leClient);
         }
     }
 }
