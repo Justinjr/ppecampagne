@@ -11,6 +11,9 @@ namespace GesCampagneBO
 
 
 
+
+
+
         private int id;
         private string intitule;
         private string objectif;
