@@ -5,6 +5,7 @@ using System.Text;
 using GesCampagneBO;
 using System.Configuration;
 using GesCampagneDAL;
+using System.Data.SqlClient;
 
 
 namespace GesCampagneDAL
@@ -27,41 +28,48 @@ namespace GesCampagneDAL
             return uneInstanceEventDAO;
         }
 
-        public List<Event> GetEvents()
+        public int AjoutEvent(Event unEvent)
         {
 
 
-            //on récup l'objet responsable de la connexion a la base
+            //recup l'objet responsable de la connexion a la base
             SqlConnection cnx = AccesBD.getInstance().getSqlConnexion();
-
-            //on creer la collection lesClients de type list<Client> qui va contenir les clients
-            List<Event> lesClients = new List<Event>();
-
-            //crer objet de type sqlCommand
             SqlCommand maCommand = new SqlCommand();
 
-            //execute la requete
-
-
-            maCommand.CommandText = "select nom,prenom  from Client ";
 
             maCommand.Connection = cnx;
-            SqlDataReader monReader = maCommand.ExecuteReader();
-            while (monReader.Read())
+            maCommand.Parameters.Clear();
+
+            maCommand.CommandText = "select Count(*) from Client where nom=@nom and prenom=@prenom ";
+            maCommand.Parameters.Add("nom", System.Data.SqlDbType.VarChar);
+            maCommand.Parameters[0].Value = unEvent.Nom;
+            maCommand.Parameters.Add("prenom", System.Data.SqlDbType.VarChar);
+            maCommand.Parameters[1].Value = unEvent.Prenom;
+
+            int nb = (int)maCommand.ExecuteScalar();
+
+            if (nb > 0)
             {
+                AccesBD.getInstance().CloseConnection();
+                return 0;
+            }
+            else
+            {
+                maCommand.Parameters.Clear();
+                maCommand.CommandText = "insert into Evenement values(@nom,@prenom)";
 
-                nom = (string)monReader["nom"];
-                prenom = (string)monReader["prenom"];
 
-                lesClients.Add(new Client(prenom, nom));
+                maCommand.Parameters.Add("nom", System.Data.SqlDbType.VarChar);
+                maCommand.Parameters[0].Value = unEvent.Nom;
+                maCommand.Parameters.Add("prenom", System.Data.SqlDbType.VarChar);
+                maCommand.Parameters[1].Value = unEvent.Prenom;
+
+                int nbEnregAjout = maCommand.ExecuteNonQuery();
+                AccesBD.getInstance().CloseConnection();
+                return nbEnregAjout;
+
 
             }
-
-
-            AccesBD.getInstance().CloseConnection();
-            return lesClients;
-        }
-    }
 
     
 }
