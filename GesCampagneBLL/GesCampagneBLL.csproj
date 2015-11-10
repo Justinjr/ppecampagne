@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,6 +50,10 @@
     <Compile Include="VilleManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GesCampagneBO\GesCampagneBO.csproj">
+      <Project>{20bbfdf6-74fc-4eed-baf8-1d3a37216ff2}</Project>
+      <Name>GesCampagneBO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GesCampagneDAL\GesCampagneDAL.csproj">
       <Project>{3d043c36-24ee-4ed7-a324-748ff3eb93d6}</Project>
       <Name>GesCampagneDAL</Name>

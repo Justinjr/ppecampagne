@@ -13,8 +13,7 @@ namespace GesCampagneDAL
         private DateTime dateDebut;
         private DateTime dateFin;
         private string theme;
-        private Ville uneVille;
-        private Campagne uneCampagne;
+       
 
 
     }

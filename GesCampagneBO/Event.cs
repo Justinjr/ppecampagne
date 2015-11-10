@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GesCampagneBO
 {
-    public class Evenement
+    public class Event
     {
         private int id;
         private string theme;
