@@ -44,6 +44,7 @@
     <Compile Include="AccesBD.cs" />
     <Compile Include="ArtisteDAO.cs" />
     <Compile Include="CampagneDAO.cs" />
+    <Compile Include="CategorieVipDAO.cs" />
     <Compile Include="EmployeDAO.cs" />
     <Compile Include="EventDAO.cs" />
     <Compile Include="MessageDAO.cs" />

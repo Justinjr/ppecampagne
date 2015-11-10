@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ArtisteManager.cs" />
     <Compile Include="CampagneManager.cs" />
+    <Compile Include="CategorieVipManager.cs" />
     <Compile Include="EmployeManager.cs" />
     <Compile Include="EventManager.cs" />
     <Compile Include="MessageManager.cs" />
