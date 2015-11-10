@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GesCampagneDAL
 {
-    public class campagneDAO
+    public class CampagneDAO
     {
     }
 }
