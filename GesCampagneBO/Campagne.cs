@@ -64,7 +64,7 @@ namespace GesCampagneBO
             set { dateFin = value; }
         }
 
-        public int IdPublic
+        public Public IdPublic
         {
             get
             {
@@ -77,7 +77,7 @@ namespace GesCampagneBO
             }
         }
 
-        public int IdEmploye
+        public Employe IdEmploye
         {
             get
             {
@@ -89,7 +89,5 @@ namespace GesCampagneBO
                 idEmploye = value;
             }
         }
-
-
     }
 }
