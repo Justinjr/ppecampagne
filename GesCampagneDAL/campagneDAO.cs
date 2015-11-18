@@ -97,7 +97,7 @@ namespace GesCampagneDAL
             while (monReader.Read())
             {
                 int id = (int)monReader["id"];
-                string intitule = (string)monReader["intitule"];
+                string intitule = (string)monReader["intitule"]; 
                 string objectif = (string)monReader["objectif"];
                 DateTime dateDebut = (DateTime)monReader["dateDebut"];
                 DateTime dateFin = (DateTime)monReader["dateFin"];
