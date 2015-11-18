@@ -35,6 +35,7 @@ namespace GesCampagneDAL
             SqlCommand maCommand = new SqlCommand();
 
             maCommand.Connection = cnx;
+            
             //maCommand.CommandType = CommandType.StoredProcedure;
             //maCommand.CommandText = "lenomdelaprocedure";
             maCommand.Parameters.Clear();
