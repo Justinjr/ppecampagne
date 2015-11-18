@@ -26,8 +26,11 @@ namespace GesCampagneDAL
             return uneInstanceArtisteDAO;
         }
 
-        //la méthode getClient retourne une collection contenant les lesClients
-        //existant dans la table Client
+        /// <summary>
+        /// la méthode getArtiste retourne une collection contenant les Artistes
+        /// existant dans la table Artiste
+        /// </summary>
+        /// <returns>la liste de tous les artistes</returns>
         public List<Artiste> GetArtistes()
         {
             string nomLu;
@@ -36,22 +39,24 @@ namespace GesCampagneDAL
             SqlDataReader monLecteur;
 
             //on recupere l'objet responsable de la connexion à la base
-            SqlConnection cnx = AccesBD.GetInstance().GetSqlConnection();
+            SqlConnection cnx = AccesBD.GetInstance().GetSqlConnexion();
 
             //on crée la collection lesArtistes de type List<artiste> qui va contenir les artistes
-            List<Artiste> lesClients = new List<Artiste>();
+            List<Artiste> lesArtistes = new List<Artiste>();
 
             //on crée l'objet de type SqlCommand qui va contenir la requete SQL
             //permettant d'obtenir toutes les caractéristiques de tous les artistes
             SqlCommand command = new SqlCommand();
             command.Connection = cnx;
+            //maCommand.CommandType = CommandType.StoredProcedure;
+            //maCommand.CommandText = "spObtenirArtiste";
             command.CommandText = "select * from artiste";
 
             //on execute la requete
             monLecteur = command.ExecuteReader();
 
-            //pour chaque enregistrement retourné on crée un objet instance de client
-            //que l'on ajoute dans la collection lesClients
+            //pour chaque enregistrement retourné on crée un objet instance de artiste
+            //que l'on ajoute dans la collection lesArtistes
             while (monLecteur.Read())
             {
                 //on récupère le nom et le numéro de l'employe
@@ -59,29 +64,31 @@ namespace GesCampagneDAL
                 siteWebLu = (string)monLecteur["siteWeb"];
                 courantLu = (Courant)monLecteur["Courant"];
 
-                Artiste unClient = new Artiste(nomLu, siteWebLu , courantLu);
+                Artiste unArtiste = new Artiste(nomLu, siteWebLu , courantLu);
                 lesArtistes.Add(unArtiste);
             }
             AccesBD.GetInstance().CloseConnection();
-            return lesClients;
+            return lesArtistes;
         }
         //on ajoute l'artiste dans la base de données.Les caractéristiques de l'artiste sont passées
-        //en paramètre (objet unClient). La méthode retourne le nombre d'enregistrements
+        //en paramètre (objet unArtiste). La méthode retourne le nombre d'enregistrements
         //ajoutés
         public int AjoutArtiste(Artiste unArtiste)
         {
+            
             int nbLigne = 0;
             string nom = unArtiste.Nom;
             string siteWeb = unArtiste.SiteWeb;
             Courant Courant = unArtiste.UnCourant;
             SqlDataReader monLecteur;
 
-            SqlConnection cnx = AccesBD.GetInstance().GetSqlConnection();
+            SqlConnection cnx = AccesBD.GetInstance().GetSqlConnexion();
 
             SqlCommand maCommand = new SqlCommand();
             maCommand.Connection = cnx;
-            maCommand.CommandType = CommandType.StoredProcedure;
-            maCommand.CommandText = "obtenirArtiste";
+            //maCommand.CommandType = CommandType.StoredProcedure;
+            //maCommand.CommandText = "spObtenirArtiste";
+            maCommand.CommandText = "select * from Artiste";
 
             monLecteur = maCommand.ExecuteReader();
 
@@ -90,13 +97,15 @@ namespace GesCampagneDAL
             if (nb == 0)
             {
                 maCommand.Parameters.Clear();
-                maCommand.CommandText = "creerArtiste";
+                //maCommand.CommandType = CommandType.StoredProcedure;
+                //maCommand.CommandText = "spajoutArtiste";
+                maCommand.CommandText = "insert into dbo.artiste values(null,'nom','siteWeb','idCourant')";
 
                 maCommand.Parameters.Add("nom", System.Data.SqlDbType.VarChar);
                 maCommand.Parameters[0].Value = unArtiste.Nom;
                 maCommand.Parameters.Add("siteWeb", System.Data.SqlDbType.VarChar);
                 maCommand.Parameters[1].Value = unArtiste.SiteWeb;
-                maCommand.Parameters.Add("Courant", System.Data.SqlDbType.Courant);
+                maCommand.Parameters.Add("idCourant", System.Data.SqlDbType.Int);//verification avec l'int et le courant
                 maCommand.Parameters[2].Value = unArtiste.UnCourant;
 
                 nbLigne = maCommand.ExecuteNonQuery();
