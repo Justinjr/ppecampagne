@@ -12,10 +12,10 @@ namespace GesCampagneBO
         private string objectif;
         private DateTime dateDebut;
         private DateTime dateFin;
-        private int idPublic;
-        private int idEmploye;
+        private Public idPublic;
+        private Employe idEmploye;
 
-        public Campagne(int unId, string unIntitule, string unObjectif, DateTime uneDateDebut, DateTime uneDateFin, int unIdPublic,int unIdEmploye)
+        public Campagne(int unId, string unIntitule, string unObjectif, DateTime uneDateDebut, DateTime uneDateFin, Public unIdPublic,Employe unIdEmploye)
         {
             id = unId;
             intitule = unIntitule;
@@ -27,7 +27,7 @@ namespace GesCampagneBO
 
         }
 
-        public Campagne(string unIntitule, string unObjectif, DateTime uneDateDebut, DateTime uneDateFin, int unIdPublic, int unIdEmploye)
+        public Campagne(string unIntitule, string unObjectif, DateTime uneDateDebut, DateTime uneDateFin, Public unIdPublic, Employe unIdEmploye)
         {
             intitule = unIntitule;
             objectif = unObjectif;

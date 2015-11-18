@@ -20,7 +20,7 @@ namespace GesCampagneDAL
             }
             return uneInstanceCampagneDAO;
         }
-        
+
         /// <summary>
         /// Ajoute une campagne passé en paramètre si elle n'existe pas déjà.
         /// </summary>
@@ -43,7 +43,7 @@ namespace GesCampagneDAL
 
             int nbRet = (int)maCommand.ExecuteScalar();
 
-            if (nbRet>0)
+            if (nbRet > 0)
             {
                 AccesBD.GetInstance().CloseConnection();
                 return 0;
@@ -73,11 +73,10 @@ namespace GesCampagneDAL
                 AccesBD.GetInstance().CloseConnection();
                 return nb;
             }
-
+        }
              public List<Campagne> GetCampagnes()
         {
-
-
+            
             //on récup l'objet responsable de la connexion a la base
             SqlConnection cnx = AccesBD.GetInstance().GetSqlConnexion();
 
@@ -115,14 +114,5 @@ namespace GesCampagneDAL
         }
     }
 
-
-
-
-
-
-
-
-
-
-    }
+    
 }
