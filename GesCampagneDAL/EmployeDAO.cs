@@ -44,12 +44,13 @@ namespace GesCampagneDAL
             while (monReader.Read())
             {
                 int unId = (int)monReader["id"];
-                string unLibelle = (string)monReader["libelle"];
-                lesPublics.Add(new Public(unId, unLibelle));
+                string unNom = (string)monReader["nom"];
+                string unPrenom = (string)monReader["prenom"];
+                lesEmployes.Add(new Employe(unId, unNom, unPrenom));
             }
 
             AccesBD.GetInstance().CloseConnection();
-            return lesPublics;
+            return lesEmployes;
         }
 
     }
