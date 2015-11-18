@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+
 using GesCampagneBLL;
 
 namespace ApplicationGestionCampagne
@@ -21,11 +22,12 @@ namespace ApplicationGestionCampagne
         {
 
         }
-
         private void txtNomArtiste_TextChanged(object sender, EventArgs e)
         {
 
         }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -34,7 +36,7 @@ namespace ApplicationGestionCampagne
         private void lstCourantArtiste_SelectedIndexChanged(object sender, EventArgs e)
         {
             lstCourantArtiste.DataSource = ArtisteManager.GetInstance().GetArtistes();
-            lstCourantArtiste.DisplayMember = "nom";
+            lstCourantArtiste.DisplayMember = "libelle";
             lstCourantArtiste.ValueMember = "id";
         }
     }

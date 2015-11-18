@@ -93,10 +93,10 @@
             // lblTitreAjoutArtiste
             // 
             this.lblTitreAjoutArtiste.AutoSize = true;
-            this.lblTitreAjoutArtiste.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitreAjoutArtiste.Location = new System.Drawing.Point(109, 56);
+            this.lblTitreAjoutArtiste.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitreAjoutArtiste.Location = new System.Drawing.Point(98, 56);
             this.lblTitreAjoutArtiste.Name = "lblTitreAjoutArtiste";
-            this.lblTitreAjoutArtiste.Size = new System.Drawing.Size(151, 24);
+            this.lblTitreAjoutArtiste.Size = new System.Drawing.Size(162, 26);
             this.lblTitreAjoutArtiste.TabIndex = 6;
             this.lblTitreAjoutArtiste.Text = "Ajout d\'un Artiste";
             // 
