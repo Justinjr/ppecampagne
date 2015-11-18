@@ -38,7 +38,7 @@ namespace GesCampagneDAL
             //maCommand.CommandType = CommandType.StoredProcedure;
             //maCommand.CommandText = "lenomdelaprocedure";
             maCommand.Parameters.Clear();
-            maCommand.CommandText = "select * from Public";
+            maCommand.CommandText = "select * from Employe";
             SqlDataReader monReader = maCommand.ExecuteReader();
 
             while (monReader.Read())
