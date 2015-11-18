@@ -45,10 +45,10 @@ namespace GesCampagneDAL
         //}
 
         /// <summary>
-        /// 
+        /// Ajoute une campagne passé en paramètre si elle n'existe pas déjà.
         /// </summary>
         /// <param name="uneCampagne">référence à campagne</param>
-        /// <returns></returns>
+        /// <returns>Retourne 0 si elle existe et 1 si elle s'ajoute.</returns>
         public int AjoutCampagne(Campagne uneCampagne)
         {
             SqlConnection cnx = AccesBD.GetInstance().GetSqlConnexion();
@@ -73,6 +73,8 @@ namespace GesCampagneDAL
             }
             else
             {
+                //maCommand.CommandType = CommandType.StoredProcedure;
+                //maCommand.CommandText = "lenomdelaprocedure";
                 maCommand.Parameters.Clear();
                 maCommand.CommandText = "insert into Client values(@intitule,@objectif,@dateDebut,@dateFin,@idPublic,@idEmploye)";
                 maCommand.Parameters.Add("intitule", System.Data.SqlDbType.VarChar);
@@ -89,20 +91,11 @@ namespace GesCampagneDAL
                 maCommand.Parameters[5].Value = uneCampagne.IdEmploye;
 
 
+                int nb = maCommand.ExecuteNonQuery();
 
-
-
-
+                AccesBD.GetInstance().CloseConnection();
+                return nb;
             }
-
-
-
-
-
-
-
-
-            
         }
 
 
