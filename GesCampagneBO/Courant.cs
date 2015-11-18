@@ -32,5 +32,9 @@ namespace GesCampagneBO
         {
             this.libelle = unLibelle;
         }
+        public Courant(int unId)
+        {
+            this.id = unId;
+        }
     }
 }

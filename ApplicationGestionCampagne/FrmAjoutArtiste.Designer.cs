@@ -35,6 +35,7 @@
             this.lblSiteWeb = new System.Windows.Forms.Label();
             this.lblCourant = new System.Windows.Forms.Label();
             this.lblTitreAjoutArtiste = new System.Windows.Forms.Label();
+            this.btnEnregArtiste = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNomArtiste
@@ -43,6 +44,7 @@
             this.txtNomArtiste.Name = "txtNomArtiste";
             this.txtNomArtiste.Size = new System.Drawing.Size(123, 20);
             this.txtNomArtiste.TabIndex = 0;
+            this.txtNomArtiste.TextChanged += new System.EventHandler(this.txtNomArtiste_TextChanged);
             // 
             // txtSiteWeb
             // 
@@ -58,6 +60,7 @@
             this.lstCourantArtiste.Name = "lstCourantArtiste";
             this.lstCourantArtiste.Size = new System.Drawing.Size(123, 30);
             this.lstCourantArtiste.TabIndex = 2;
+            this.lstCourantArtiste.SelectedIndexChanged += new System.EventHandler(this.lstCourantArtiste_SelectedIndexChanged);
             // 
             // lblNomArtiste
             // 
@@ -97,11 +100,22 @@
             this.lblTitreAjoutArtiste.TabIndex = 6;
             this.lblTitreAjoutArtiste.Text = "Ajout d\'un Artiste";
             // 
+            // btnEnregArtiste
+            // 
+            this.btnEnregArtiste.Location = new System.Drawing.Point(113, 240);
+            this.btnEnregArtiste.Name = "btnEnregArtiste";
+            this.btnEnregArtiste.Size = new System.Drawing.Size(99, 39);
+            this.btnEnregArtiste.TabIndex = 7;
+            this.btnEnregArtiste.Text = "Enregistrer";
+            this.btnEnregArtiste.UseVisualStyleBackColor = true;
+            this.btnEnregArtiste.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmAjoutArtiste
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 319);
+            this.Controls.Add(this.btnEnregArtiste);
             this.Controls.Add(this.lblTitreAjoutArtiste);
             this.Controls.Add(this.lblCourant);
             this.Controls.Add(this.lblSiteWeb);
@@ -125,5 +139,6 @@
         private System.Windows.Forms.Label lblSiteWeb;
         private System.Windows.Forms.Label lblCourant;
         private System.Windows.Forms.Label lblTitreAjoutArtiste;
+        private System.Windows.Forms.Button btnEnregArtiste;
     }
 }

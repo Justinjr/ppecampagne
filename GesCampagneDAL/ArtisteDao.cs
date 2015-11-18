@@ -46,14 +46,14 @@ namespace GesCampagneDAL
 
             //on crée l'objet de type SqlCommand qui va contenir la requete SQL
             //permettant d'obtenir toutes les caractéristiques de tous les artistes
-            SqlCommand command = new SqlCommand();
-            command.Connection = cnx;
-            //maCommand.CommandType = CommandType.StoredProcedure;
-            //maCommand.CommandText = "spObtenirArtiste";
-            command.CommandText = "select * from artiste";
+            SqlCommand maCommand = new SqlCommand();
+            maCommand.Connection = cnx;
+            maCommand.CommandType = CommandType.StoredProcedure;
+            maCommand.CommandText = "spObtenirArtiste";
+            //maCommand.CommandText = "select * from artiste";
 
             //on execute la requete
-            monLecteur = command.ExecuteReader();
+            monLecteur = maCommand.ExecuteReader();
 
             //pour chaque enregistrement retourné on crée un objet instance de artiste
             //que l'on ajoute dans la collection lesArtistes
@@ -74,8 +74,7 @@ namespace GesCampagneDAL
         //en paramètre (objet unArtiste). La méthode retourne le nombre d'enregistrements
         //ajoutés
         public int AjoutArtiste(Artiste unArtiste)
-        {
-            
+        {  
             int nbLigne = 0;
             string nom = unArtiste.Nom;
             string siteWeb = unArtiste.SiteWeb;
@@ -86,9 +85,9 @@ namespace GesCampagneDAL
 
             SqlCommand maCommand = new SqlCommand();
             maCommand.Connection = cnx;
-            //maCommand.CommandType = CommandType.StoredProcedure;
-            //maCommand.CommandText = "spObtenirArtiste";
-            maCommand.CommandText = "select count(*) from Artiste where nom = @nom";
+            maCommand.CommandType = CommandType.StoredProcedure;
+            maCommand.CommandText = "spObtenirArtiste";
+            //maCommand.CommandText = "select count(*) from Artiste where nom = @nom";
 
             maCommand.Parameters.Add("nom", System.Data.SqlDbType.VarChar);
             maCommand.Parameters[0].Value = unArtiste.Nom;
@@ -99,19 +98,20 @@ namespace GesCampagneDAL
 
             if (nb == 0)
             {
-                maCommand.Parameters.Clear();
-                //maCommand.CommandType = CommandType.StoredProcedure;
-                //maCommand.CommandText = "spajoutArtiste";
-                maCommand.CommandText = "insert into dbo.artiste values(null,'nom','siteWeb','idCourant')";
+                    maCommand.Parameters.Clear();
+                    maCommand.CommandType = CommandType.StoredProcedure;
+                    maCommand.CommandText = "spAjoutArtiste";
+                    //maCommand.CommandText = "insert into dbo.artiste values(null,'nom','siteWeb','idCourant')";
 
-                maCommand.Parameters.Add("nom", System.Data.SqlDbType.VarChar);
-                maCommand.Parameters[0].Value = unArtiste.Nom;
-                maCommand.Parameters.Add("siteWeb", System.Data.SqlDbType.VarChar);
-                maCommand.Parameters[1].Value = unArtiste.SiteWeb;
-                maCommand.Parameters.Add("idCourant", System.Data.SqlDbType.Int);//verification avec l'int et le courant
-                maCommand.Parameters[2].Value = unArtiste.UnCourant;
+                    maCommand.Parameters.Add("nom", System.Data.SqlDbType.VarChar);
+                    maCommand.Parameters[0].Value = unArtiste.Nom;
+                    maCommand.Parameters.Add("siteWeb", System.Data.SqlDbType.VarChar);
+                    maCommand.Parameters[1].Value = unArtiste.SiteWeb;
+                    maCommand.Parameters.Add("idCourant", System.Data.SqlDbType.Int);
+                    //verification avec l'int et le courant
+                    maCommand.Parameters[2].Value = unArtiste.UnCourant.Id;
 
-                nbLigne = maCommand.ExecuteNonQuery();
+                    nbLigne = maCommand.ExecuteNonQuery();
             }
             //on retourne le nombre d'enregistrement ajoutées
             //refermer la connection avant chaque return

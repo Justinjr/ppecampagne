@@ -30,16 +30,17 @@ namespace GesCampagneBLL
             AccesBD.GetInstance().SetChaine(laChaine);
         }
         //appel de la couche DAL pour récupéré une collection de clients
-        public List<Artiste> GetClients()
+        public List<Artiste> GetArtistes()
         {
             //ici , on peut appliquer des règles métier
             return ArtisteDAO.GetInstanceArtisteDAO().GetArtistes();
         }
         //appel de la couche DAL pour créer un nouveau client
-        public int CreerArtiste(string sonNom, string sonSiteWeb , Courant sonIdCourant)
+        public int CreerArtiste(string sonNom, string sonSiteWeb , int sonIdCourant)
         {
             Artiste leArtiste;
-            leArtiste = new Artiste(sonNom, sonSiteWeb,sonIdCourant);
+            Courant leCourant = new Courant(sonIdCourant);
+            leArtiste = new Artiste(sonNom, sonSiteWeb,leCourant);
             return ArtisteDAO.GetInstanceArtisteDAO().AjoutArtiste(leArtiste);
         }
     }
