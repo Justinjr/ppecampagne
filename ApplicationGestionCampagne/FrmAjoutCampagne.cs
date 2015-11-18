@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using GesCampagneBLL;
 using GesCampagneBO;
 using GesCampagneDAL;
+using System.Configuration;
 
 namespace ApplicationGestionCampagne
 {
@@ -18,7 +19,7 @@ namespace ApplicationGestionCampagne
         {
             InitializeComponent();
 
-            ClientManager.GetInstance().SetChaineConnexion(ConfigurationManager.ConnectionStrings["Clientele"]);
+            CampagneManager.GetInstance().SetChaineConnexion(ConfigurationManager.ConnectionStrings["Clientele"]);
 
 
         }

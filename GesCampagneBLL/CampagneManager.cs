@@ -28,7 +28,7 @@ namespace GesCampagneBLL
         }
 
 
-        public int CreerCampagne(string unIntitule, string unObjectif, DateTime uneDateDebut, DateTime uneDateFin, int unIdPublic, int unIdEmploye)
+        public int CreerCampagne(string unIntitule, string unObjectif, DateTime uneDateDebut, DateTime uneDateFin, Public unIdPublic, Employe unIdEmploye)
         {
             Campagne laCampagne;
             laCampagne = new Campagne( unIntitule, unObjectif, uneDateDebut, uneDateFin, unIdPublic, unIdEmploye);
