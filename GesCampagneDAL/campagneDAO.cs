@@ -62,10 +62,10 @@ namespace GesCampagneDAL
                 maCommand.Parameters[2].Value = uneCampagne.DateDebut;
                 maCommand.Parameters.Add("dateFin", System.Data.SqlDbType.DateTime);
                 maCommand.Parameters[3].Value = uneCampagne.DateFin;
-                maCommand.Parameters.Add("idPublic", System.Data.SqlDbType.VarChar);
-                maCommand.Parameters[4].Value = uneCampagne.IdPublic;
-                maCommand.Parameters.Add("idEmploye", System.Data.SqlDbType.VarChar);
-                maCommand.Parameters[5].Value = uneCampagne.IdEmploye;
+                maCommand.Parameters.Add("idPublic", System.Data.SqlDbType.Int);
+                maCommand.Parameters[4].Value = uneCampagne.IdPublic.Id;
+                maCommand.Parameters.Add("idEmploye", System.Data.SqlDbType.Int);
+                maCommand.Parameters[5].Value = uneCampagne.IdEmploye.Id;
 
 
                 int nb = maCommand.ExecuteNonQuery();
