@@ -101,8 +101,8 @@ namespace GesCampagneDAL
                 string objectif = (string)monReader["objectif"];
                 DateTime dateDebut = (DateTime)monReader["dateDebut"];
                 DateTime dateFin = (DateTime)monReader["dateFin"];
-                int idPublic = (int)monReader["idPublic"];
-                int idEmploye = (int)monReader["idEmploye"];
+                Public idPublic = (Public)monReader["idPublic"];
+                Employe idEmploye = (Employe)monReader["idEmploye"];
 
                 lesCampagnes.Add(new Campagne(intitule,objectif,dateDebut,dateFin,idPublic,idEmploye));
 

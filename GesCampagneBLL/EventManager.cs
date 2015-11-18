@@ -5,7 +5,7 @@ using System.Text;
 using GesCampagneDAL;
 using System.Configuration;
 using GesCampagneBO;
-using GesCampagneDAL;
+
 
 
 
@@ -41,10 +41,10 @@ namespace GesCampagneBLL
         }
 
         //appel de la couche DAL pour creer un new client
-        public int CreerEvenement(string theme, DateTime dateDebut, DateTime dateFin, Ville laVille, Campagne laCampagne)
+        public int CreerEvenement(string theme, DateTime dateDebut, DateTime dateFin, Campagne laCampagne, Ville laVille)
         {
             Event leEvenement;
-            leEvenement = new Event( theme,  dateDebut,  dateFin,  laVille, laCampagne);
+            leEvenement = new Event( theme,  dateDebut,  dateFin, laCampagne,laVille);
             return EventDAO.GetInstanceDAOEvent().AjoutEvent(leEvenement);
         }
     }
