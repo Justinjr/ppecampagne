@@ -44,6 +44,11 @@ namespace GesCampagneDAL
         //    return lesCampagnes;
         //}
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="uneCampagne">référence à campagne</param>
+        /// <returns></returns>
         public int AjoutCampagne(Campagne uneCampagne)
         {
             SqlConnection cnx = AccesBD.GetInstance().GetSqlConnexion();
@@ -69,7 +74,7 @@ namespace GesCampagneDAL
             else
             {
                 maCommand.Parameters.Clear();
-                maCommand.CommandText = "";
+                maCommand.CommandText = "insert into Client values(@intitule,@objectif,@dateDebut,@dateFin)";
 
 
 

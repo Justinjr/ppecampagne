@@ -34,14 +34,10 @@
             this.lblObjectif = new System.Windows.Forms.Label();
             this.lblPublic = new System.Windows.Forms.Label();
             this.lblEmploye = new System.Windows.Forms.Label();
-            this.lblAgenceCom = new System.Windows.Forms.Label();
-            this.lblAgenceEvent = new System.Windows.Forms.Label();
             this.lblDateDebut = new System.Windows.Forms.Label();
             this.lblDateFin = new System.Windows.Forms.Label();
             this.cbxPublicCampagne = new System.Windows.Forms.ComboBox();
             this.cbxEmployeCampagne = new System.Windows.Forms.ComboBox();
-            this.cbxAgenceComCampagne = new System.Windows.Forms.ComboBox();
-            this.cbxAgenceEventCampagne = new System.Windows.Forms.ComboBox();
             this.dtpDateDebutCampagne = new System.Windows.Forms.DateTimePicker();
             this.dteDateFinCampagne = new System.Windows.Forms.DateTimePicker();
             this.btnAjoutCampagne = new System.Windows.Forms.Button();
@@ -97,24 +93,6 @@
             this.lblEmploye.TabIndex = 5;
             this.lblEmploye.Text = "Employe assigné";
             // 
-            // lblAgenceCom
-            // 
-            this.lblAgenceCom.AutoSize = true;
-            this.lblAgenceCom.Location = new System.Drawing.Point(54, 227);
-            this.lblAgenceCom.Name = "lblAgenceCom";
-            this.lblAgenceCom.Size = new System.Drawing.Size(133, 13);
-            this.lblAgenceCom.TabIndex = 6;
-            this.lblAgenceCom.Text = "Agence de communication";
-            // 
-            // lblAgenceEvent
-            // 
-            this.lblAgenceEvent.AutoSize = true;
-            this.lblAgenceEvent.Location = new System.Drawing.Point(54, 261);
-            this.lblAgenceEvent.Name = "lblAgenceEvent";
-            this.lblAgenceEvent.Size = new System.Drawing.Size(110, 13);
-            this.lblAgenceEvent.TabIndex = 7;
-            this.lblAgenceEvent.Text = "Agence evenementiel";
-            // 
             // lblDateDebut
             // 
             this.lblDateDebut.AutoSize = true;
@@ -149,22 +127,6 @@
             this.cbxEmployeCampagne.Size = new System.Drawing.Size(121, 21);
             this.cbxEmployeCampagne.TabIndex = 11;
             // 
-            // cbxAgenceComCampagne
-            // 
-            this.cbxAgenceComCampagne.FormattingEnabled = true;
-            this.cbxAgenceComCampagne.Location = new System.Drawing.Point(204, 227);
-            this.cbxAgenceComCampagne.Name = "cbxAgenceComCampagne";
-            this.cbxAgenceComCampagne.Size = new System.Drawing.Size(121, 21);
-            this.cbxAgenceComCampagne.TabIndex = 12;
-            // 
-            // cbxAgenceEventCampagne
-            // 
-            this.cbxAgenceEventCampagne.FormattingEnabled = true;
-            this.cbxAgenceEventCampagne.Location = new System.Drawing.Point(204, 261);
-            this.cbxAgenceEventCampagne.Name = "cbxAgenceEventCampagne";
-            this.cbxAgenceEventCampagne.Size = new System.Drawing.Size(121, 21);
-            this.cbxAgenceEventCampagne.TabIndex = 13;
-            // 
             // dtpDateDebutCampagne
             // 
             this.dtpDateDebutCampagne.Location = new System.Drawing.Point(433, 101);
@@ -196,14 +158,10 @@
             this.Controls.Add(this.btnAjoutCampagne);
             this.Controls.Add(this.dteDateFinCampagne);
             this.Controls.Add(this.dtpDateDebutCampagne);
-            this.Controls.Add(this.cbxAgenceEventCampagne);
-            this.Controls.Add(this.cbxAgenceComCampagne);
             this.Controls.Add(this.cbxEmployeCampagne);
             this.Controls.Add(this.cbxPublicCampagne);
             this.Controls.Add(this.lblDateFin);
             this.Controls.Add(this.lblDateDebut);
-            this.Controls.Add(this.lblAgenceEvent);
-            this.Controls.Add(this.lblAgenceCom);
             this.Controls.Add(this.lblEmploye);
             this.Controls.Add(this.lblPublic);
             this.Controls.Add(this.lblObjectif);
@@ -225,14 +183,10 @@
         private System.Windows.Forms.Label lblObjectif;
         private System.Windows.Forms.Label lblPublic;
         private System.Windows.Forms.Label lblEmploye;
-        private System.Windows.Forms.Label lblAgenceCom;
-        private System.Windows.Forms.Label lblAgenceEvent;
         private System.Windows.Forms.Label lblDateDebut;
         private System.Windows.Forms.Label lblDateFin;
         private System.Windows.Forms.ComboBox cbxPublicCampagne;
         private System.Windows.Forms.ComboBox cbxEmployeCampagne;
-        private System.Windows.Forms.ComboBox cbxAgenceComCampagne;
-        private System.Windows.Forms.ComboBox cbxAgenceEventCampagne;
         private System.Windows.Forms.DateTimePicker dtpDateDebutCampagne;
         private System.Windows.Forms.DateTimePicker dteDateFinCampagne;
         private System.Windows.Forms.Button btnAjoutCampagne;
