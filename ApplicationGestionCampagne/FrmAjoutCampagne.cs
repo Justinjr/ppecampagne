@@ -19,13 +19,29 @@ namespace ApplicationGestionCampagne
         {
             InitializeComponent();
 
-            CampagneManager.GetInstance().SetChaineConnexion(ConfigurationManager.ConnectionStrings["Clientele"]);
+            CampagneManager.GetInstance().SetChaineConnexion(ConfigurationManager.ConnectionStrings["GesCampagne"]);
 
 
+            cbxPublicCampagne.DataSource=PublicDAO.GetInstanceDAOPublic().GetPublics();
+            cbxPublicCampagne.DisplayMember = "unLibelle";
+            cbxPublicCampagne.ValueMember = "unId";
+            cbxPublicCampagne.Text = "Veuillez sélectionner un public";
+            cbxPublicCampagne.SelectedIndex = -1;
+
+            cbxEmployeCampagne.DataSource = EmployeDAO.GetInstanceDAOEmploye().GetEmployes();
+            cbxEmployeCampagne.DisplayMember = "unNom"+" unPrenom";
+            cbxEmployeCampagne.ValueMember = "unId";
+            cbxEmployeCampagne.Text = "Veuillez sélectionner un Employe assigné";
+            cbxEmployeCampagne.SelectedIndex = -1;
         }
 
         private void FrmAjoutCampagne_Load(object sender, EventArgs e)
         {
+
+            
+
+
+
 
         }
     }

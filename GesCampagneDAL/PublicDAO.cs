@@ -40,7 +40,7 @@ namespace GesCampagneDAL
             maCommand.Parameters.Clear();
             maCommand.CommandText = "select * from Public";
             SqlDataReader monReader = maCommand.ExecuteReader();
-
+            
             while (monReader.Read())
             {
                 int unId = (int)monReader["id"];
