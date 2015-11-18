@@ -20,30 +20,7 @@ namespace GesCampagneDAL
             }
             return uneInstanceCampagneDAO;
         }
-
-
-        //public List<Campagne> GetCampagne()
-        //{
-        //    SqlConnection cnx = AccesBD.GetInstance().GetSqlConnexion();
-
-        //    List<Campagne> lesCampagnes = new List<Campagne>();
-        //    SqlCommand maCommand = new SqlCommand();
-
-        //    maCommand.Connection = cnx;
-        //    //maCommand.CommandType = CommandType.StoredProcedure;
-        //    //maCommand.CommandText = "lenomdelaprocedure";
-        //    //maCommand.CommandText = "select * from Campagne";
-        //    SqlDataReader monReader = maCommand.ExecuteReader();
-
-        //    while (monReader.Read())
-        //    {
-
-        //    }
-
-        //    AccesBD.GetInstance().CloseConnection();
-        //    return lesCampagnes;
-        //}
-
+        
         /// <summary>
         /// Ajoute une campagne passé en paramètre si elle n'existe pas déjà.
         /// </summary>
