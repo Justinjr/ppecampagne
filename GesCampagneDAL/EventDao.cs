@@ -29,6 +29,11 @@ namespace GesCampagneDAL
             return uneInstanceEventDAO;
         }
 
+        /// <summary>
+        /// appel de la dao pour ajouter un evenement
+        /// </summary>
+        /// <param name="unEvent"></param>
+        /// <returns>nombre d'element ajouter dans un evenement</returns>
         public int AjoutEvent(Event unEvent)
         {
 
@@ -40,12 +45,16 @@ namespace GesCampagneDAL
 
             maCommand.Connection = cnx;
             maCommand.Parameters.Clear();
+            maCommand.CommandType = CommandType.StoredProcedure;
+            maCommand.CommandText = "selectEvent";
 
-            maCommand.CommandText = "select Count(*) from Evenement where nom=@nom and prenom=@prenom ";
-            maCommand.Parameters.Add("nom", System.Data.SqlDbType.VarChar);
-            maCommand.Parameters[0].Value = unEvent.Nom;
-            maCommand.Parameters.Add("prenom", System.Data.SqlDbType.VarChar);
-            maCommand.Parameters[1].Value = unEvent.Prenom;
+
+            // maCommand.CommandText = "select Count(*) from Evenement where idCampagne=@idCampagne and  idVille=@idVille  ";
+
+            maCommand.Parameters.Add("idCampagne", System.Data.SqlDbType.VarChar);
+            maCommand.Parameters[0].Value = unEvent.LaCampagne.Intitule;
+            maCommand.Parameters.Add("idVille", System.Data.SqlDbType.VarChar);
+            maCommand.Parameters[1].Value = unEvent.LaVille.Libelle;
 
             int nb = (int)maCommand.ExecuteScalar();
 
@@ -58,7 +67,8 @@ namespace GesCampagneDAL
             {
                 maCommand.Parameters.Clear();
                 //maCommand.CommandText = "insert into Evenement values(@theme,@Campagne,@dateDebut,@dateFin,@Ville)";
-
+                maCommand.CommandType = CommandType.StoredProcedure;
+                maCommand.CommandText = "ajoutEvent";
 
                 maCommand.Parameters.Add("theme", System.Data.SqlDbType.VarChar);
                 maCommand.Parameters[0].Value = unEvent.Theme;
