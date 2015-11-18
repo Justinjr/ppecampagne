@@ -88,7 +88,10 @@ namespace GesCampagneDAL
             maCommand.Connection = cnx;
             //maCommand.CommandType = CommandType.StoredProcedure;
             //maCommand.CommandText = "spObtenirArtiste";
-            maCommand.CommandText = "select * from Artiste";
+            maCommand.CommandText = "select count(*) from Artiste where nom = @nom";
+
+            maCommand.Parameters.Add("nom", System.Data.SqlDbType.VarChar);
+            maCommand.Parameters[0].Value = unArtiste.Nom;
 
             monLecteur = maCommand.ExecuteReader();
 
