@@ -12,7 +12,7 @@ namespace GesCampagneDAL
     {
         private static EmployeDAO uneInstanceEmployeDAO;
 
-        public static EmployeDAO GetInstanceDAOPublic()
+        public static EmployeDAO GetInstanceDAOEmploye()
         {
             if (uneInstanceEmployeDAO == null)
             {
