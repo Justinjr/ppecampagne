@@ -11,7 +11,7 @@ namespace GesCampagneDAL
     public class PublicDAO
     {
         private static PublicDAO uneInstancePublicDAO;
-
+        
         public static PublicDAO GetInstanceDAOPublic()
         {
             if (uneInstancePublicDAO == null)
@@ -33,12 +33,9 @@ namespace GesCampagneDAL
 
             List<Public> lesPublics = new List<Public>();
             SqlCommand maCommand = new SqlCommand();
-
+            
             maCommand.Connection = cnx;
-            //maCommand.CommandType = CommandType.StoredProcedure;
-            //maCommand.CommandText = "lenomdelaprocedure";
-            maCommand.Parameters.Clear();
-            maCommand.CommandText = "select * from Public";
+            maCommand.CommandText = "select * from PublicConcerne";
             SqlDataReader monReader = maCommand.ExecuteReader();
             
             while (monReader.Read())
