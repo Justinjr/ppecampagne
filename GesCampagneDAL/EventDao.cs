@@ -29,6 +29,48 @@ namespace GesCampagneDAL
             return uneInstanceEventDAO;
         }
 
+        public List<Event> GetEvents()
+        {
+
+
+            //on récup l'objet responsable de la connexion a la base
+            SqlConnection cnx = AccesBD.GetInstance().GetSqlConnexion();
+
+            //on creer la collection lesClients de type list<Client> qui va contenir les clients
+            List<Event> lesEvents = new List<Event>();
+
+            //crer objet de type sqlCommand
+            SqlCommand maCommand = new SqlCommand();
+
+            //execute la requete
+
+            maCommand.CommandType = CommandType.StoredProcedure;
+            maCommand.CommandText = "GetEvents";
+            // maCommand.CommandText = "select nom,prenom  from Client ";
+
+            maCommand.Connection = cnx;
+            SqlDataReader monReader = maCommand.ExecuteReader();
+            while (monReader.Read())
+            {
+                int id = (int)monReader["id"];
+                string theme = (string)monReader["theme"];
+                DateTime dateDebut = (DateTime)monReader["dateDebut"];
+                DateTime dateFin = (DateTime)monReader["dateFin"];
+                Campagne laCampagne = (Campagne)monReader["idCampagne"];
+                Ville laVille = (Ville)monReader["idVille"];
+                
+               
+
+
+                lesEvents.Add(new Event(id,theme,dateDebut,dateFin,laCampagne,laVille));
+
+            }
+
+
+            AccesBD.GetInstance().CloseConnection();
+            return lesEvents;
+        }
+
         /// <summary>
         /// appel de la dao pour ajouter un evenement
         /// </summary>

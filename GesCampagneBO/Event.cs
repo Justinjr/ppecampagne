@@ -14,6 +14,7 @@ namespace GesCampagneBO
         private DateTime dateFin;
         private string sonNom;
         private string sonPrenom;
+        
 
         public Event(string sonNom, string sonPrenom)
         {
@@ -21,8 +22,9 @@ namespace GesCampagneBO
             this.sonPrenom = sonPrenom;
         }
 
-        private Ville laVille;
         private Campagne laCampagne;
+        private Ville laVille;
+        
 
 
 
@@ -79,7 +81,7 @@ namespace GesCampagneBO
             }
         }
 
-        public Event(int id,string theme,DateTime dateDebut,DateTime dateFin,Ville laVille,Campagne laCampagne)
+        public Event(int id,string theme,DateTime dateDebut,DateTime dateFin,Campagne laCampagne, Ville laVille)
         {
             this.id = id;
             this.theme = theme;
@@ -89,7 +91,7 @@ namespace GesCampagneBO
             this.LaCampagne=laCampagne;
         }
 
-        public Event(string theme, DateTime dateDebut, DateTime dateFin,Ville laVille,Campagne laCampagne)
+        public Event(string theme, DateTime dateDebut, DateTime dateFin,Campagne laCampagne, Ville laVille)
         {
             this.theme = theme;
             this.dateDebut = dateDebut;

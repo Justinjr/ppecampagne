@@ -32,20 +32,20 @@ namespace GesCampagneBLL
         public void SetChaineConnexion(ConnectionStringSettings connSetting)
         {
             string laChaine = connSetting.ConnectionString;
-            AccesBD.getInstance().SetChaine(laChaine);
+            AccesBD.GetInstance().SetChaine(laChaine);
         }
         //appel de la couche DAL pour recup une collectionn de client
-        public List<Event> GetClients()
+        public List<Event> GetEvents()
         {
             return EventDAO.GetInstanceDAOEvent().GetEvents();
         }
 
         //appel de la couche DAL pour creer un new client
-        public int CreerClient(string sonNom, string sonPrenom)
+        public int CreerEvenement(string theme, DateTime dateDebut, DateTime dateFin, Ville laVille, Campagne laCampagne)
         {
-            Event leClient;
-            leClient = new Event(sonNom, sonPrenom);
-            return EventDAO.GetInstanceDAOEvent().AjoutEvent(leClient);
+            Event leEvenement;
+            leEvenement = new Event( theme,  dateDebut,  dateFin,  laVille, laCampagne);
+            return EventDAO.GetInstanceDAOEvent().AjoutEvent(leEvenement);
         }
     }
 }
