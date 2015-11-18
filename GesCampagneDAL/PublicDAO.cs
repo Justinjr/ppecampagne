@@ -23,6 +23,10 @@ namespace GesCampagneDAL
 
 
 
+        /// <summary>
+        /// Récupère une liste avec tous les publics.
+        /// </summary>
+        /// <returns>une list avec les publics</returns>
         public List<Public> GetPublics()
         {
             SqlConnection cnx = AccesBD.GetInstance().GetSqlConnexion();
@@ -48,20 +52,6 @@ namespace GesCampagneDAL
             return lesPublics;
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
     }
 }
