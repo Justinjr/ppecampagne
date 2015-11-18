@@ -93,10 +93,10 @@ namespace GesCampagneDAL
 
             // maCommand.CommandText = "select Count(*) from Evenement where idCampagne=@idCampagne and  idVille=@idVille  ";
 
-            maCommand.Parameters.Add("idCampagne", System.Data.SqlDbType.VarChar);
-            maCommand.Parameters[0].Value = unEvent.LaCampagne.Intitule;
-            maCommand.Parameters.Add("idVille", System.Data.SqlDbType.VarChar);
-            maCommand.Parameters[1].Value = unEvent.LaVille.Libelle;
+            maCommand.Parameters.Add("idCampagne", System.Data.SqlDbType.Int);
+            maCommand.Parameters[0].Value = unEvent.LaCampagne.Id;
+            maCommand.Parameters.Add("idVille", System.Data.SqlDbType.Int);
+            maCommand.Parameters[1].Value = unEvent.LaVille.NumInsee;
 
             int nb = (int)maCommand.ExecuteScalar();
 
@@ -118,10 +118,10 @@ namespace GesCampagneDAL
                 maCommand.Parameters[2].Value = unEvent.DateDebut;
                 maCommand.Parameters.Add("dateFin", System.Data.SqlDbType.VarChar);
                 maCommand.Parameters[3].Value = unEvent.DateFin;
-                maCommand.Parameters.Add("idCampagne", System.Data.SqlDbType.VarChar);
-                maCommand.Parameters[1].Value = unEvent.LaCampagne.Intitule;
-                maCommand.Parameters.Add("idVille", System.Data.SqlDbType.VarChar);
-                maCommand.Parameters[4].Value = unEvent.LaVille.Libelle;
+                maCommand.Parameters.Add("idCampagne", System.Data.SqlDbType.Int);
+                maCommand.Parameters[1].Value = unEvent.LaCampagne.Id;
+                maCommand.Parameters.Add("idVille", System.Data.SqlDbType.Int);
+                maCommand.Parameters[4].Value = unEvent.LaVille.NumInsee;
 
                 int eventAjout = maCommand.ExecuteNonQuery();
                 AccesBD.GetInstance().CloseConnection();

@@ -37,7 +37,7 @@ namespace GesCampagneBLL
             return VilleDAO.GetInstanceDAOVille().GetVilles();
         }
 
-        //appel de la couche DAL pour creer un new client
+        
        
     }
 }
