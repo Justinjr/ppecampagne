@@ -6,6 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using GesCampagneBLL;
+using GesCampagneBO;
+using GesCampagneDAL;
 
 namespace ApplicationGestionCampagne
 {

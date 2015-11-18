@@ -33,7 +33,7 @@ namespace GesCampagneDAL
             SqlConnection cnx = AccesBD.GetInstance().GetSqlConnexion();
 
             //on creer la collection lesClients de type list<Client> qui va contenir les clients
-            List<Ville> lesClients = new List<Ville>();
+            List<Ville> lesVilles = new List<Ville>();
 
             //crer objet de type sqlCommand
             SqlCommand maCommand = new SqlCommand();
@@ -52,13 +52,13 @@ namespace GesCampagneDAL
                  string libelle = (string)monReader["libelle"];
                  string cp = (string)monReader["cp"];
 
-                lesClients.Add(new Ville(numInsee,libelle, cp));
+                lesVilles.Add(new Ville(numInsee,libelle, cp));
 
             }
 
 
             AccesBD.GetInstance().CloseConnection();
-            return lesClients;
+            return lesVilles;
         }
 
 

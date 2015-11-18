@@ -73,7 +73,47 @@ namespace GesCampagneDAL
                 AccesBD.GetInstance().CloseConnection();
                 return nb;
             }
+
+             public List<Campagne> GetCampagnes()
+        {
+
+
+            //on récup l'objet responsable de la connexion a la base
+            SqlConnection cnx = AccesBD.GetInstance().GetSqlConnexion();
+
+            //on creer la collection lesClients de type list<Client> qui va contenir les clients
+            List<Campagne> lesCampagnes = new List<Campagne>();
+
+            //crer objet de type sqlCommand
+            SqlCommand maCommand = new SqlCommand();
+
+            //execute la requete
+
+            maCommand.CommandType = CommandType.StoredProcedure;
+            maCommand.CommandText = "GetCampagne";
+            // maCommand.CommandText = "select nom,prenom  from Client ";
+
+            maCommand.Connection = cnx;
+            SqlDataReader monReader = maCommand.ExecuteReader();
+            while (monReader.Read())
+            {
+                int id = (int)monReader["id"];
+                string intitule = (string)monReader["intitule"];
+                string objectif = (string)monReader["objectif"];
+                DateTime dateDebut = (DateTime)monReader["dateDebut"];
+                DateTime dateFin = (DateTime)monReader["dateFin"];
+                int idPublic = (int)monReader["idPublic"];
+                int idEmploye = (int)monReader["idEmploye"];
+
+                lesCampagnes.Add(new Campagne(intitule,objectif,dateDebut,dateFin,idPublic,idEmploye));
+
+            }
+
+
+            AccesBD.GetInstance().CloseConnection();
+            return lesCampagnes;
         }
+    }
 
 
 
