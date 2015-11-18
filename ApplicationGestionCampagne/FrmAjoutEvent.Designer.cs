@@ -33,13 +33,13 @@
             this.dtpDateFin = new System.Windows.Forms.DateTimePicker();
             this.dtpDateDebut = new System.Windows.Forms.DateTimePicker();
             this.cbxVille = new System.Windows.Forms.ComboBox();
-            this.cbxTheme = new System.Windows.Forms.ComboBox();
             this.cbxCampagne = new System.Windows.Forms.ComboBox();
             this.lblVille = new System.Windows.Forms.Label();
             this.lblTheme = new System.Windows.Forms.Label();
             this.lblDateFin = new System.Windows.Forms.Label();
             this.lblDateDebut = new System.Windows.Forms.Label();
             this.lblCampagne = new System.Windows.Forms.Label();
+            this.txtTheme = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblErreur
@@ -59,6 +59,7 @@
             this.btnAjoutEvent.TabIndex = 22;
             this.btnAjoutEvent.Text = "Ajouter";
             this.btnAjoutEvent.UseVisualStyleBackColor = true;
+            this.btnAjoutEvent.Click += new System.EventHandler(this.btnAjoutEvent_Click);
             // 
             // dtpDateFin
             // 
@@ -82,14 +83,6 @@
             this.cbxVille.Size = new System.Drawing.Size(200, 21);
             this.cbxVille.TabIndex = 19;
             // 
-            // cbxTheme
-            // 
-            this.cbxTheme.FormattingEnabled = true;
-            this.cbxTheme.Location = new System.Drawing.Point(239, 302);
-            this.cbxTheme.Name = "cbxTheme";
-            this.cbxTheme.Size = new System.Drawing.Size(200, 21);
-            this.cbxTheme.TabIndex = 18;
-            // 
             // cbxCampagne
             // 
             this.cbxCampagne.FormattingEnabled = true;
@@ -97,6 +90,7 @@
             this.cbxCampagne.Name = "cbxCampagne";
             this.cbxCampagne.Size = new System.Drawing.Size(200, 21);
             this.cbxCampagne.TabIndex = 17;
+            this.cbxCampagne.SelectedIndexChanged += new System.EventHandler(this.cbxCampagne_SelectedIndexChanged);
             // 
             // lblVille
             // 
@@ -143,17 +137,24 @@
             this.lblCampagne.TabIndex = 12;
             this.lblCampagne.Text = "Campagne :";
             // 
+            // txtTheme
+            // 
+            this.txtTheme.Location = new System.Drawing.Point(239, 298);
+            this.txtTheme.Name = "txtTheme";
+            this.txtTheme.Size = new System.Drawing.Size(200, 20);
+            this.txtTheme.TabIndex = 24;
+            // 
             // FrmAjoutEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(609, 542);
+            this.Controls.Add(this.txtTheme);
             this.Controls.Add(this.lblErreur);
             this.Controls.Add(this.btnAjoutEvent);
             this.Controls.Add(this.dtpDateFin);
             this.Controls.Add(this.dtpDateDebut);
             this.Controls.Add(this.cbxVille);
-            this.Controls.Add(this.cbxTheme);
             this.Controls.Add(this.cbxCampagne);
             this.Controls.Add(this.lblVille);
             this.Controls.Add(this.lblTheme);
@@ -174,12 +175,12 @@
         private System.Windows.Forms.DateTimePicker dtpDateFin;
         private System.Windows.Forms.DateTimePicker dtpDateDebut;
         private System.Windows.Forms.ComboBox cbxVille;
-        private System.Windows.Forms.ComboBox cbxTheme;
         private System.Windows.Forms.ComboBox cbxCampagne;
         private System.Windows.Forms.Label lblVille;
         private System.Windows.Forms.Label lblTheme;
         private System.Windows.Forms.Label lblDateFin;
         private System.Windows.Forms.Label lblDateDebut;
         private System.Windows.Forms.Label lblCampagne;
+        private System.Windows.Forms.TextBox txtTheme;
     }
 }

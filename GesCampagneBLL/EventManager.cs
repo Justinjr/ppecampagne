@@ -41,7 +41,7 @@ namespace GesCampagneBLL
         }
 
         //appel de la couche DAL pour creer un new client
-        public int CreerEvenement(string theme, DateTime dateDebut, DateTime dateFin, Campagne laCampagne, Ville laVille)
+        public int CreerEvent(string theme, DateTime dateDebut, DateTime dateFin, Campagne laCampagne, Ville laVille)
         {
             Event leEvenement;
             leEvenement = new Event( theme,  dateDebut,  dateFin, laCampagne,laVille);

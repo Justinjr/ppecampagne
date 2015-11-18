@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using GesCampagneBLL;
 using GesCampagneBO;
 using GesCampagneDAL;
+using System.Configuration;
 
 namespace ApplicationGestionCampagne
 {
@@ -17,8 +18,47 @@ namespace ApplicationGestionCampagne
         public FrmAjoutEvent()
         {
             InitializeComponent();
+            EventManager.GetInstance().SetChaineConnexion(ConfigurationManager.ConnectionStrings["GesCampagne"]);
+
+            cbxCampagne.DataSource = CampagneDAO.GetInstanceDAOCampagne().GetCampagnes();
+            cbxCampagne.DisplayMember = "intitule";
+            cbxCampagne.DisplayMember = "id";
+            cbxCampagne.Text = "veuillez selectionner une campagne";
+            cbxCampagne.SelectedIndex = -1;
+
+            cbxVille.DataSource = CampagneDAO.GetInstanceDAOCampagne().GetCampagnes();
+            cbxVille.DisplayMember = "intitule";
+            cbxVille.DisplayMember = "id";
+            cbxVille.Text = "veuillez selectionner une campagne";
+            cbxVille.SelectedIndex = -1;
+
+
+
+
+
         }
 
-        
+        private void btnAjoutEvent_Click(object sender, EventArgs e)
+        {
+            object res = EventManager.GetInstance().CreerEvent(txtTheme.Text, dtpDateDebut.MinDate, dtpDateFin.MaxDate, (Campagne)cbxCampagne.SelectedValue, (Ville)cbxVille.SelectedValue);
+            if (res == null)
+            {
+                MessageBox.Show("l'ajout de l'évenement est erronée");
+            }
+            else
+            {
+                MessageBox.Show("l'ajout s'est bien déroulé");
+            }
+
+        }
+
+        private void cbxCampagne_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbxCampagne.DataSource = CampagneDAO.GetInstanceDAOCampagne().GetCampagnes();
+            cbxCampagne.DisplayMember = "intitule";
+            cbxCampagne.ValueMember = "id";
+
+
+        }
     }
 }
