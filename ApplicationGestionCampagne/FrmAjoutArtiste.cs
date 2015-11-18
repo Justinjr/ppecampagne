@@ -7,23 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-
 namespace ApplicationGestionCampagne
 {
-    public partial class FrmAjoutArtiste : Form
+    public partial class frmAjoutArtiste : Form
     {
-        public FrmAjoutArtiste()
+        public frmAjoutArtiste()
         {
             InitializeComponent();
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-
-        }
-        private void btnAjoutArtiste_Click(object sender, EventArgs e)
-        {
-            int res = 
 
         }
     }
