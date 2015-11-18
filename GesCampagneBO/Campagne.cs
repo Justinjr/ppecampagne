@@ -12,23 +12,29 @@ namespace GesCampagneBO
         private string objectif;
         private DateTime dateDebut;
         private DateTime dateFin;
+        private int idPublic;
+        private int idEmploye;
 
-        public Campagne(int unId, string unIntitule, string unObjectif, DateTime uneDateDebut, DateTime uneDateFin)
+        public Campagne(int unId, string unIntitule, string unObjectif, DateTime uneDateDebut, DateTime uneDateFin, int unIdPublic,int unIdEmploye)
         {
             id = unId;
             intitule = unIntitule;
             objectif = unObjectif;
             dateDebut = uneDateDebut;
             dateFin = uneDateFin;
+            idPublic = unIdPublic;
+            idEmploye = unIdEmploye;
 
         }
 
-        public Campagne(string unIntitule, string unObjectif, DateTime uneDateDebut, DateTime uneDateFin)
+        public Campagne(string unIntitule, string unObjectif, DateTime uneDateDebut, DateTime uneDateFin, int unIdPublic, int unIdEmploye)
         {
             intitule = unIntitule;
             objectif = unObjectif;
             dateDebut = uneDateDebut;
             dateFin = uneDateFin;
+            idPublic = unIdPublic;
+            idEmploye = unIdEmploye;
 
         }
 
@@ -58,18 +64,31 @@ namespace GesCampagneBO
             set { dateFin = value; }
         }
 
+        public int IdPublic
+        {
+            get
+            {
+                return idPublic;
+            }
 
+            set
+            {
+                idPublic = value;
+            }
+        }
 
+        public int IdEmploye
+        {
+            get
+            {
+                return idEmploye;
+            }
 
-
-
-
-
-
-
-
-
-
+            set
+            {
+                idEmploye = value;
+            }
+        }
 
 
     }

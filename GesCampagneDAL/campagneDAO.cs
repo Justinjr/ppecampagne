@@ -74,7 +74,21 @@ namespace GesCampagneDAL
             else
             {
                 maCommand.Parameters.Clear();
-                maCommand.CommandText = "insert into Client values(@intitule,@objectif,@dateDebut,@dateFin)";
+                maCommand.CommandText = "insert into Client values(@intitule,@objectif,@dateDebut,@dateFin,@idPublic,@idEmploye)";
+                maCommand.Parameters.Add("intitule", System.Data.SqlDbType.VarChar);
+                maCommand.Parameters[0].Value = uneCampagne.Intitule;
+                maCommand.Parameters.Add("objectif", System.Data.SqlDbType.VarChar);
+                maCommand.Parameters[1].Value = uneCampagne.Objectif;
+                maCommand.Parameters.Add("dateDebut", System.Data.SqlDbType.DateTime);
+                maCommand.Parameters[2].Value = uneCampagne.DateDebut;
+                maCommand.Parameters.Add("dateFin", System.Data.SqlDbType.DateTime);
+                maCommand.Parameters[3].Value = uneCampagne.DateFin;
+                maCommand.Parameters.Add("idPublic", System.Data.SqlDbType.VarChar);
+                maCommand.Parameters[4].Value = uneCampagne.IdPublic;
+                maCommand.Parameters.Add("idEmploye", System.Data.SqlDbType.VarChar);
+                maCommand.Parameters[5].Value = uneCampagne.IdEmploye;
+
+
 
 
 
