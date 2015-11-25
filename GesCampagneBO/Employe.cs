@@ -26,6 +26,10 @@ namespace GesCampagneBO
             prenom = unPrenom;
         }
 
+        public Employe(int unId)
+        {
+            id = unId;
+        }
 
         public int Id
         {

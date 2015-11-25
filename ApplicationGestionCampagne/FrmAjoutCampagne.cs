@@ -37,14 +37,28 @@ namespace ApplicationGestionCampagne
             cbxEmployeCampagne.SelectedIndex = 0;
         }
 
-        private void FrmAjoutCampagne_Load(object sender, EventArgs e)
+        private void btnAjoutCampagne_Click(object sender, EventArgs e)
         {
+            int res = 0;
+            if ((int)cbxPublicCampagne.SelectedValue>0 && (int)cbxEmployeCampagne.SelectedValue>0 && dtpDateFinCampagne.Value>dtpDateDebutCampagne.Value && txtNomCampagne.Text!="" && txtObjectifCampagne.Text!="")
+            {
+                res = CampagneManager.GetInstance().CreerCampagne(txtNomCampagne.Text, txtObjectifCampagne.Text, dtpDateDebutCampagne.Value, dtpDateFinCampagne.Value, (int)cbxPublicCampagne.SelectedValue, (int)cbxEmployeCampagne.SelectedValue);
+
+                if (res == 1)
+                {
+                    MessageBox.Show("L'enregistrement de la campagne a bien été effectuer");
+                }
+                else
+                {
+                    MessageBox.Show("Un problème est survenu lors de l'enregistrement de la campagne");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Un problème est survenu lors de l'enregistrement de la campagne");
+            }
 
             
-
-
-
-
         }
     }
 }

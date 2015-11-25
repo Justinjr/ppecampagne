@@ -22,6 +22,11 @@ namespace GesCampagneBO
             libelle = unLibelle;
         }
 
+        public Public(int unId)
+        {
+            id = unId;
+        }
+
         public int Id
         {
             get { return id; }

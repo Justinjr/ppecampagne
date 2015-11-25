@@ -53,7 +53,7 @@ namespace GesCampagneDAL
                 //maCommand.CommandType = CommandType.StoredProcedure;
                 //maCommand.CommandText = "lenomdelaprocedure";
                 maCommand.Parameters.Clear();
-                maCommand.CommandText = "insert into Client values(@intitule,@objectif,@dateDebut,@dateFin,@idPublic,@idEmploye)";
+                maCommand.CommandText = "insert into Campagne values(@intitule,@objectif,@dateDebut,@dateFin,@idPublic,@idEmploye)";
                 maCommand.Parameters.Add("intitule", System.Data.SqlDbType.VarChar);
                 maCommand.Parameters[0].Value = uneCampagne.Intitule;
                 maCommand.Parameters.Add("objectif", System.Data.SqlDbType.VarChar);
@@ -68,7 +68,7 @@ namespace GesCampagneDAL
                 maCommand.Parameters[5].Value = uneCampagne.IdEmploye.Id;
 
 
-                int nb = maCommand.ExecuteNonQuery();
+                int nb = (int)maCommand.ExecuteNonQuery();
 
                 AccesBD.GetInstance().CloseConnection();
                 return nb;
