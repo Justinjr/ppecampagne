@@ -15,7 +15,7 @@ namespace ApplicationGestionCampagne
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmAjoutCampagne());
+            Application.Run(new FrmMenu());
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace ApplicationGestionCampagne
 {
-    partial class frmAjoutArtiste
+    partial class FrmAjoutArtiste
     {
         /// <summary>
         /// Required designer variable.
@@ -30,12 +30,12 @@
         {
             this.txtNomArtiste = new System.Windows.Forms.TextBox();
             this.txtSiteWeb = new System.Windows.Forms.TextBox();
-            this.lstCourantArtiste = new System.Windows.Forms.ListBox();
             this.lblNomArtiste = new System.Windows.Forms.Label();
             this.lblSiteWeb = new System.Windows.Forms.Label();
             this.lblCourant = new System.Windows.Forms.Label();
             this.lblTitreAjoutArtiste = new System.Windows.Forms.Label();
             this.btnEnregArtiste = new System.Windows.Forms.Button();
+            this.cbxCourantArtiste = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtNomArtiste
@@ -52,15 +52,6 @@
             this.txtSiteWeb.Name = "txtSiteWeb";
             this.txtSiteWeb.Size = new System.Drawing.Size(123, 20);
             this.txtSiteWeb.TabIndex = 1;
-            // 
-            // lstCourantArtiste
-            // 
-            this.lstCourantArtiste.FormattingEnabled = true;
-            this.lstCourantArtiste.Location = new System.Drawing.Point(137, 188);
-            this.lstCourantArtiste.Name = "lstCourantArtiste";
-            this.lstCourantArtiste.Size = new System.Drawing.Size(123, 30);
-            this.lstCourantArtiste.TabIndex = 2;
-            this.lstCourantArtiste.SelectedIndexChanged += new System.EventHandler(this.lstCourantArtiste_SelectedIndexChanged);
             // 
             // lblNomArtiste
             // 
@@ -93,10 +84,10 @@
             // lblTitreAjoutArtiste
             // 
             this.lblTitreAjoutArtiste.AutoSize = true;
-            this.lblTitreAjoutArtiste.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitreAjoutArtiste.Location = new System.Drawing.Point(109, 56);
+            this.lblTitreAjoutArtiste.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitreAjoutArtiste.Location = new System.Drawing.Point(98, 56);
             this.lblTitreAjoutArtiste.Name = "lblTitreAjoutArtiste";
-            this.lblTitreAjoutArtiste.Size = new System.Drawing.Size(151, 24);
+            this.lblTitreAjoutArtiste.Size = new System.Drawing.Size(162, 26);
             this.lblTitreAjoutArtiste.TabIndex = 6;
             this.lblTitreAjoutArtiste.Text = "Ajout d\'un Artiste";
             // 
@@ -110,20 +101,29 @@
             this.btnEnregArtiste.UseVisualStyleBackColor = true;
             this.btnEnregArtiste.Click += new System.EventHandler(this.button1_Click);
             // 
-            // frmAjoutArtiste
+            // cbxCourantArtiste
+            // 
+            this.cbxCourantArtiste.FormattingEnabled = true;
+            this.cbxCourantArtiste.Location = new System.Drawing.Point(137, 185);
+            this.cbxCourantArtiste.Name = "cbxCourantArtiste";
+            this.cbxCourantArtiste.Size = new System.Drawing.Size(123, 21);
+            this.cbxCourantArtiste.TabIndex = 8;
+            this.cbxCourantArtiste.SelectedIndexChanged += new System.EventHandler(this.cbxCourantArtiste_SelectedIndexChanged);
+            // 
+            // FrmAjoutArtiste
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 319);
+            this.Controls.Add(this.cbxCourantArtiste);
             this.Controls.Add(this.btnEnregArtiste);
             this.Controls.Add(this.lblTitreAjoutArtiste);
             this.Controls.Add(this.lblCourant);
             this.Controls.Add(this.lblSiteWeb);
             this.Controls.Add(this.lblNomArtiste);
-            this.Controls.Add(this.lstCourantArtiste);
             this.Controls.Add(this.txtSiteWeb);
             this.Controls.Add(this.txtNomArtiste);
-            this.Name = "frmAjoutArtiste";
+            this.Name = "FrmAjoutArtiste";
             this.Text = "frmAjoutArtiste";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -134,11 +134,11 @@
 
         private System.Windows.Forms.TextBox txtNomArtiste;
         private System.Windows.Forms.TextBox txtSiteWeb;
-        private System.Windows.Forms.ListBox lstCourantArtiste;
         private System.Windows.Forms.Label lblNomArtiste;
         private System.Windows.Forms.Label lblSiteWeb;
         private System.Windows.Forms.Label lblCourant;
         private System.Windows.Forms.Label lblTitreAjoutArtiste;
         private System.Windows.Forms.Button btnEnregArtiste;
+        private System.Windows.Forms.ComboBox cbxCourantArtiste;
     }
 }

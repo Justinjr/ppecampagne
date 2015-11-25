@@ -41,6 +41,7 @@ namespace GesCampagneDAL
             maCommand.CommandText = "select * from Employe";
             SqlDataReader monReader = maCommand.ExecuteReader();
 
+            lesEmployes.Add(new Employe(0,"Veuillez saisir un employe",""));
             while (monReader.Read())
             {
                 int unId = (int)monReader["id"];

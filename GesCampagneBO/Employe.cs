@@ -26,6 +26,10 @@ namespace GesCampagneBO
             prenom = unPrenom;
         }
 
+        public Employe(int unId)
+        {
+            id = unId;
+        }
 
         public int Id
         {
@@ -43,7 +47,10 @@ namespace GesCampagneBO
             get { return prenom; }
             set { prenom = value; }
         }
-
+        public string NomPrenom
+        {
+            get { return nom+' ' +prenom; }
+        }
 
     }
 }

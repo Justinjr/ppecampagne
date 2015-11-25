@@ -33,5 +33,16 @@ namespace GesCampagneDAL.Properties {
                 return ((string)(this["ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=301P13;Initial Catalog=GestionCampagne_PPE_SIO2;Integrated Security=T" +
+            "rue")]
+        public string GestionCampagne_PPE_SIO2ConnectionString {
+            get {
+                return ((string)(this["GestionCampagne_PPE_SIO2ConnectionString"]));
+            }
+        }
     }
 }

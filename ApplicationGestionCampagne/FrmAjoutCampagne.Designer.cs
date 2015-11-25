@@ -39,7 +39,7 @@
             this.cbxPublicCampagne = new System.Windows.Forms.ComboBox();
             this.cbxEmployeCampagne = new System.Windows.Forms.ComboBox();
             this.dtpDateDebutCampagne = new System.Windows.Forms.DateTimePicker();
-            this.dteDateFinCampagne = new System.Windows.Forms.DateTimePicker();
+            this.dtpDateFinCampagne = new System.Windows.Forms.DateTimePicker();
             this.btnAjoutCampagne = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -116,7 +116,7 @@
             this.cbxPublicCampagne.FormattingEnabled = true;
             this.cbxPublicCampagne.Location = new System.Drawing.Point(205, 150);
             this.cbxPublicCampagne.Name = "cbxPublicCampagne";
-            this.cbxPublicCampagne.Size = new System.Drawing.Size(121, 21);
+            this.cbxPublicCampagne.Size = new System.Drawing.Size(159, 21);
             this.cbxPublicCampagne.TabIndex = 10;
             // 
             // cbxEmployeCampagne
@@ -124,7 +124,7 @@
             this.cbxEmployeCampagne.FormattingEnabled = true;
             this.cbxEmployeCampagne.Location = new System.Drawing.Point(205, 184);
             this.cbxEmployeCampagne.Name = "cbxEmployeCampagne";
-            this.cbxEmployeCampagne.Size = new System.Drawing.Size(121, 21);
+            this.cbxEmployeCampagne.Size = new System.Drawing.Size(159, 21);
             this.cbxEmployeCampagne.TabIndex = 11;
             // 
             // dtpDateDebutCampagne
@@ -134,12 +134,12 @@
             this.dtpDateDebutCampagne.Size = new System.Drawing.Size(200, 20);
             this.dtpDateDebutCampagne.TabIndex = 14;
             // 
-            // dteDateFinCampagne
+            // dtpDateFinCampagne
             // 
-            this.dteDateFinCampagne.Location = new System.Drawing.Point(433, 185);
-            this.dteDateFinCampagne.Name = "dteDateFinCampagne";
-            this.dteDateFinCampagne.Size = new System.Drawing.Size(200, 20);
-            this.dteDateFinCampagne.TabIndex = 15;
+            this.dtpDateFinCampagne.Location = new System.Drawing.Point(433, 185);
+            this.dtpDateFinCampagne.Name = "dtpDateFinCampagne";
+            this.dtpDateFinCampagne.Size = new System.Drawing.Size(200, 20);
+            this.dtpDateFinCampagne.TabIndex = 15;
             // 
             // btnAjoutCampagne
             // 
@@ -149,6 +149,7 @@
             this.btnAjoutCampagne.TabIndex = 16;
             this.btnAjoutCampagne.Text = "Enregistrer";
             this.btnAjoutCampagne.UseVisualStyleBackColor = true;
+            this.btnAjoutCampagne.Click += new System.EventHandler(this.btnAjoutCampagne_Click);
             // 
             // FrmAjoutCampagne
             // 
@@ -156,7 +157,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 521);
             this.Controls.Add(this.btnAjoutCampagne);
-            this.Controls.Add(this.dteDateFinCampagne);
+            this.Controls.Add(this.dtpDateFinCampagne);
             this.Controls.Add(this.dtpDateDebutCampagne);
             this.Controls.Add(this.cbxEmployeCampagne);
             this.Controls.Add(this.cbxPublicCampagne);
@@ -170,7 +171,6 @@
             this.Controls.Add(this.txtNomCampagne);
             this.Name = "FrmAjoutCampagne";
             this.Text = "Formulaire d\'ajout de campagne";
-            this.Load += new System.EventHandler(this.FrmAjoutCampagne_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,7 +189,7 @@
         private System.Windows.Forms.ComboBox cbxPublicCampagne;
         private System.Windows.Forms.ComboBox cbxEmployeCampagne;
         private System.Windows.Forms.DateTimePicker dtpDateDebutCampagne;
-        private System.Windows.Forms.DateTimePicker dteDateFinCampagne;
+        private System.Windows.Forms.DateTimePicker dtpDateFinCampagne;
         private System.Windows.Forms.Button btnAjoutCampagne;
     }
 }

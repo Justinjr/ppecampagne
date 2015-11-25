@@ -28,10 +28,12 @@ namespace GesCampagneBLL
         }
 
 
-        public int CreerCampagne(string unIntitule, string unObjectif, DateTime uneDateDebut, DateTime uneDateFin, Public unIdPublic, Employe unIdEmploye)
+        public int CreerCampagne(string unIntitule, string unObjectif, DateTime uneDateDebut, DateTime uneDateFin, int unIdPublic, int unIdEmploye)
         {
             Campagne laCampagne;
-            laCampagne = new Campagne( unIntitule, unObjectif, uneDateDebut, uneDateFin, unIdPublic, unIdEmploye);
+            Public unPublic = new Public(unIdPublic);
+            Employe unEmploye = new Employe(unIdEmploye); ;
+            laCampagne = new Campagne( unIntitule, unObjectif, uneDateDebut, uneDateFin, unPublic, unEmploye);
             return CampagneDAO.GetInstanceDAOCampagne().AjoutCampagne(laCampagne);
         }
 

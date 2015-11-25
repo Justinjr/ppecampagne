@@ -6,22 +6,30 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Configuration;
+
 using GesCampagneBLL;
 
 namespace ApplicationGestionCampagne
 {
-    public partial class frmAjoutArtiste : Form
+    public partial class FrmAjoutArtiste : Form
     {
-        public frmAjoutArtiste()
+        public FrmAjoutArtiste()
         {
             InitializeComponent();
+
+            ArtisteManager.GetInstance().SetChaineConnexion(ConfigurationManager.ConnectionStrings["GesCampagne"]);
+
+            cbxCourantArtiste.DataSource = CourantManager.GetInstance().GetCourants();
+            cbxCourantArtiste.ValueMember = "id";
+            cbxCourantArtiste.DisplayMember = "libelle";
+            cbxCourantArtiste.SelectedIndex = -1;
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
-
         private void txtNomArtiste_TextChanged(object sender, EventArgs e)
         {
 
@@ -29,13 +37,23 @@ namespace ApplicationGestionCampagne
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int res = ArtisteManager.GetInstance().CreerArtiste(txtNomArtiste.Text, txtSiteWeb.Text, (int)lstCourantArtiste.SelectedValue);
+            DialogResult result1 = MessageBox.Show("voulez-vous quand même enregistrer malgrer qu'un artiste existe deja avec le meme nom ? :","Important Question",MessageBoxButtons.YesNo);
+            if (result1 == Yes)
+            {
+                int res = ArtisteManager.GetInstance().CreerArtiste(txtNomArtiste.Text, txtSiteWeb.Text, (int)cbxCourantArtiste.SelectedValue);
+                if (res > 0)
+                {
+                    MessageBox.Show("l'enregistrement c'est bien effectuer");
+                }
+                else
+                {
+                    MessageBox.Show("l'enregistrement ne c'est pas effectuer");
+                }
+            }
         }
-        private void lstCourantArtiste_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbxCourantArtiste_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lstCourantArtiste.DataSource = ArtisteManager.GetInstance().GetArtistes();
-            lstCourantArtiste.DisplayMember = "nom";
-            lstCourantArtiste.ValueMember = "id";
+            
         }
     }
 }
