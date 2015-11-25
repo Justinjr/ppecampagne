@@ -44,14 +44,14 @@ namespace GesCampagneDAL
             //permettant d'obtenir toutes les caractéristiques de tous les courants
             SqlCommand maCommand = new SqlCommand();
             maCommand.Connection = cnx;
-            maCommand.CommandType = CommandType.StoredProcedure;
-            maCommand.CommandText = "spSelectCourant";
-            //maCommand.CommandText = "select id, libelle from courant";
+            //maCommand.CommandType = CommandType.StoredProcedure;
+            //maCommand.CommandText = "spSelectCourant";
+            maCommand.CommandText = "select id, libelle from courant";
 
             //on execute la requete
             monLecteur = maCommand.ExecuteReader();
 
-            //pour chaque enregistrement retourné on crée un objet instance de client
+            //pour chaque enregistrement retourné on crée un objet instance de courant
             //que l'on ajoute dans la collection lesCourants
             while (monLecteur.Read())
             {

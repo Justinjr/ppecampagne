@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Configuration;
 
 using GesCampagneBLL;
 
@@ -16,6 +17,13 @@ namespace ApplicationGestionCampagne
         public FrmAjoutArtiste()
         {
             InitializeComponent();
+
+            ArtisteManager.GetInstance().SetChaineConnexion(ConfigurationManager.ConnectionStrings["GesCampagne"]);
+
+            cbxCourantArtiste.DataSource = CourantManager.GetInstance().GetCourants();
+            cbxCourantArtiste.ValueMember = "id";
+            cbxCourantArtiste.DisplayMember = "libelle";
+            cbxCourantArtiste.SelectedIndex = -1;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -34,9 +42,7 @@ namespace ApplicationGestionCampagne
 
         private void cbxCourantArtiste_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbxCourantArtiste.DataSource = CourantManager.GetInstance().GetCourants();
-            cbxCourantArtiste.DisplayMember = "libelle";
-            cbxCourantArtiste.ValueMember = "id";
+            
         }
     }
 }
