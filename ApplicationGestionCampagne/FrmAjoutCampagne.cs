@@ -22,7 +22,7 @@ namespace ApplicationGestionCampagne
             CampagneManager.GetInstance().SetChaineConnexion(ConfigurationManager.ConnectionStrings["GesCampagne"]);
 
 
-            cbxPublicCampagne.DataSource=PublicDAO.GetInstanceDAOPublic().GetPublics();
+            cbxPublicCampagne.DataSource = PublicDAO.GetInstanceDAOPublic().GetPublics();
             cbxPublicCampagne.DisplayMember = "unLibelle";
             cbxPublicCampagne.ValueMember = "unId";
             cbxPublicCampagne.Text = "Veuillez sélectionner un public";
