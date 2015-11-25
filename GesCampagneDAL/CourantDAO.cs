@@ -46,7 +46,7 @@ namespace GesCampagneDAL
             maCommand.Connection = cnx;
             maCommand.CommandType = CommandType.StoredProcedure;
             maCommand.CommandText = "spSelectCourant";
-            //command.CommandText = "select id, libelle from courant";
+            //maCommand.CommandText = "select id, libelle from courant";
 
             //on execute la requete
             monLecteur = maCommand.ExecuteReader();

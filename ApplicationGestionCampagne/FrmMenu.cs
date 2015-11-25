@@ -32,8 +32,8 @@ namespace ApplicationGestionCampagne
 
         private void btnAjoutArtiste_Click(object sender, EventArgs e)
         {
-            frmAjoutArtiste leFrmArtiste;
-            leFrmArtiste = new frmAjoutArtiste();
+            FrmAjoutArtiste leFrmArtiste;
+            leFrmArtiste = new FrmAjoutArtiste();
             leFrmArtiste.ShowDialog();
         }
 

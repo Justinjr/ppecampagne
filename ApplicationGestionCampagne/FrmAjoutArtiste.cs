@@ -11,9 +11,9 @@ using GesCampagneBLL;
 
 namespace ApplicationGestionCampagne
 {
-    public partial class frmAjoutArtiste : Form
+    public partial class FrmAjoutArtiste : Form
     {
-        public frmAjoutArtiste()
+        public FrmAjoutArtiste()
         {
             InitializeComponent();
         }
@@ -27,17 +27,16 @@ namespace ApplicationGestionCampagne
 
         }
 
-
-
         private void button1_Click(object sender, EventArgs e)
         {
-            int res = ArtisteManager.GetInstance().CreerArtiste(txtNomArtiste.Text, txtSiteWeb.Text, (int)lstCourantArtiste.SelectedValue);
+            int res = ArtisteManager.GetInstance().CreerArtiste(txtNomArtiste.Text, txtSiteWeb.Text, (int)cbxCourantArtiste.SelectedValue);
         }
-        private void lstCourantArtiste_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void cbxCourantArtiste_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lstCourantArtiste.DataSource = ArtisteManager.GetInstance().GetArtistes();
-            lstCourantArtiste.DisplayMember = "libelle";
-            lstCourantArtiste.ValueMember = "id";
+            cbxCourantArtiste.DataSource = CourantManager.GetInstance().GetCourants();
+            cbxCourantArtiste.DisplayMember = "libelle";
+            cbxCourantArtiste.ValueMember = "id";
         }
     }
 }
