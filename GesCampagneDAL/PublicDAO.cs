@@ -37,7 +37,8 @@ namespace GesCampagneDAL
             maCommand.Connection = cnx;
             maCommand.CommandText = "select * from PublicConcerne";
             SqlDataReader monReader = maCommand.ExecuteReader();
-            
+
+            lesPublics.Add(new Public(0, "Veuillez saisir un public"));
             while (monReader.Read())
             {
                 int unId = (int)monReader["id"];

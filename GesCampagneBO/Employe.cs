@@ -43,7 +43,10 @@ namespace GesCampagneBO
             get { return prenom; }
             set { prenom = value; }
         }
-
+        public string NomPrenom
+        {
+            get { return nom+' ' +prenom; }
+        }
 
     }
 }

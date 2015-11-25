@@ -116,7 +116,7 @@
             this.cbxPublicCampagne.FormattingEnabled = true;
             this.cbxPublicCampagne.Location = new System.Drawing.Point(205, 150);
             this.cbxPublicCampagne.Name = "cbxPublicCampagne";
-            this.cbxPublicCampagne.Size = new System.Drawing.Size(121, 21);
+            this.cbxPublicCampagne.Size = new System.Drawing.Size(159, 21);
             this.cbxPublicCampagne.TabIndex = 10;
             // 
             // cbxEmployeCampagne
@@ -124,7 +124,7 @@
             this.cbxEmployeCampagne.FormattingEnabled = true;
             this.cbxEmployeCampagne.Location = new System.Drawing.Point(205, 184);
             this.cbxEmployeCampagne.Name = "cbxEmployeCampagne";
-            this.cbxEmployeCampagne.Size = new System.Drawing.Size(121, 21);
+            this.cbxEmployeCampagne.Size = new System.Drawing.Size(159, 21);
             this.cbxEmployeCampagne.TabIndex = 11;
             // 
             // dtpDateDebutCampagne

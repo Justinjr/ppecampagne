@@ -19,21 +19,22 @@ namespace ApplicationGestionCampagne
         {
             InitializeComponent();
 
+            
             CampagneManager.GetInstance().SetChaineConnexion(ConfigurationManager.ConnectionStrings["GesCampagne"]);
 
 
             cbxPublicCampagne.DataSource = PublicDAO.GetInstanceDAOPublic().GetPublics();
-            cbxPublicCampagne.DisplayMember = "unLibelle";
-            cbxPublicCampagne.ValueMember = "unId";
-            cbxPublicCampagne.Text = "Veuillez sélectionner un public";
-            cbxPublicCampagne.SelectedIndex = -1;
+            cbxPublicCampagne.DisplayMember = "Libelle";
+            cbxPublicCampagne.ValueMember = "Id";
+            //cbxPublicCampagne.Text = "Veuillez sélectionner un public";
+            cbxPublicCampagne.SelectedIndex = 0;
 
-
+            
             cbxEmployeCampagne.DataSource = EmployeDAO.GetInstanceDAOEmploye().GetEmployes();
-            cbxEmployeCampagne.DisplayMember = "unNom"+" unPrenom";
-            cbxEmployeCampagne.ValueMember = "unId";
-            cbxEmployeCampagne.Text = "Veuillez sélectionner un Employe assigné";
-            cbxEmployeCampagne.SelectedIndex = -1;
+            cbxEmployeCampagne.DisplayMember = "NomPrenom";
+            cbxEmployeCampagne.ValueMember = "Id";
+            //cbxEmployeCampagne.Text = "Veuillez sélectionner un Employe assigné";
+            cbxEmployeCampagne.SelectedIndex = 0;
         }
 
         private void FrmAjoutCampagne_Load(object sender, EventArgs e)
