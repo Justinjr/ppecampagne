@@ -21,14 +21,14 @@ namespace ApplicationGestionCampagne
             EventManager.GetInstance().SetChaineConnexion(ConfigurationManager.ConnectionStrings["GesCampagne"]);
 
             cbxCampagne.DataSource = CampagneDAO.GetInstanceDAOCampagne().GetCampagnes();
-            cbxCampagne.DisplayMember = "intitule";
-            cbxCampagne.DisplayMember = "id";
+            cbxCampagne.DisplayMember = "unIntitule";
+            cbxCampagne.DisplayMember = "unId";
             cbxCampagne.Text = "veuillez selectionner une campagne";
             cbxCampagne.SelectedIndex = -1;
 
-            cbxVille.DataSource = CampagneDAO.GetInstanceDAOCampagne().GetCampagnes();
-            cbxVille.DisplayMember = "intitule";
-            cbxVille.DisplayMember = "id";
+            cbxVille.DataSource = VilleDAO.GetInstanceDAOVille().GetVilles();
+            cbxVille.DisplayMember = "numInsee";
+            cbxVille.DisplayMember = "libelle";
             cbxVille.Text = "veuillez selectionner une campagne";
             cbxVille.SelectedIndex = -1;
 

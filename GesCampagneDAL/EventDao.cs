@@ -13,10 +13,7 @@ namespace GesCampagneDAL
 {
     public class EventDAO
     {
-
-        private DateTime dateDebut;
-        private DateTime dateFin;
-
+        
         private static EventDAO uneInstanceEventDAO;
 
         public static EventDAO GetInstanceDAOEvent()
