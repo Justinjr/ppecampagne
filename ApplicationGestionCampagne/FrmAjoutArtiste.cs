@@ -44,6 +44,7 @@ namespace ApplicationGestionCampagne
                 if (res > 0)
                 {
                     MessageBox.Show("l'enregistrement c'est bien effectuer");
+
                 }
                 else
                 {
