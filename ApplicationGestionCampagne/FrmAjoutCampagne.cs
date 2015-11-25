@@ -28,6 +28,7 @@ namespace ApplicationGestionCampagne
             cbxPublicCampagne.Text = "Veuillez sélectionner un public";
             cbxPublicCampagne.SelectedIndex = -1;
 
+
             cbxEmployeCampagne.DataSource = EmployeDAO.GetInstanceDAOEmploye().GetEmployes();
             cbxEmployeCampagne.DisplayMember = "unNom"+" unPrenom";
             cbxEmployeCampagne.ValueMember = "unId";
