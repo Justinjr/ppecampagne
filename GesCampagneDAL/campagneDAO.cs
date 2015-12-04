@@ -34,7 +34,7 @@ namespace GesCampagneDAL
 
             maCommand.Parameters.Clear();
             maCommand.CommandType = CommandType.StoredProcedure;
-            maCommand.CommandText = "spCountCampagne";
+            maCommand.CommandText = "spCountCampagne"; 
             //maCommand.CommandText = "select count(*) from Campagne where intitule=@intitule and objectif=@objectif";
             maCommand.Parameters.Add("intitule", System.Data.SqlDbType.VarChar);
             maCommand.Parameters[0].Value = uneCampagne.Intitule;
