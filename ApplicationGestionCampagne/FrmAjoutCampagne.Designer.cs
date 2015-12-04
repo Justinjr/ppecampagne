@@ -171,6 +171,7 @@
             this.Controls.Add(this.txtNomCampagne);
             this.Name = "FrmAjoutCampagne";
             this.Text = "Formulaire d\'ajout de campagne";
+            this.Load += new System.EventHandler(this.FrmAjoutCampagne_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

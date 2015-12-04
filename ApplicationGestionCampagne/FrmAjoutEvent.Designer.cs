@@ -163,6 +163,7 @@
             this.Controls.Add(this.lblCampagne);
             this.Name = "FrmAjoutEvent";
             this.Text = "Formulaire ajout d\'évenements";
+            this.Load += new System.EventHandler(this.FrmAjoutEvent_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
