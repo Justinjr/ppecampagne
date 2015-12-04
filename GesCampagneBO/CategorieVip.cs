@@ -15,6 +15,14 @@ namespace GesCampagneBO
             this.id = id;
             this.libelle = libelle;
         }
+        public CategorieVip (int id)
+        {
+            this.id = id;
+        }
+        public CategorieVip (string libelle)
+        {
+            this.libelle = libelle;
+        }
     // Accesseurs en lecture/éecriture
         public int Id
         {

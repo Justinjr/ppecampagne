@@ -14,16 +14,19 @@ namespace GesCampagneBO
         private DateTime dateFin;
         private string sonNom;
         private string sonPrenom;
-        
+        private Campagne laCampagne;
+        private Ville laVille;
 
         public Event(string sonNom, string sonPrenom)
         {
             this.sonNom = sonNom;
             this.sonPrenom = sonPrenom;
         }
+        public Event(int id)
+        {
+            this.id = id;
+        } 
 
-        private Campagne laCampagne;
-        private Ville laVille;
         
 
 
