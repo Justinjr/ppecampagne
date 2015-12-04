@@ -105,7 +105,6 @@ namespace GesCampagneDAL
                 Employe idEmploye = (Employe)monReader["idEmploye"];
 
                 lesCampagnes.Add(new Campagne(intitule,objectif,dateDebut,dateFin,idPublic,idEmploye));
-
             }
 
 
