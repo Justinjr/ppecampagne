@@ -27,6 +27,8 @@ namespace GesCampagneBLL
             AccesBD.GetInstance().SetChaine(laChaine);
         }
 
+        // Création d'un objet de la classe Message
+        // Appel de la couche DAO pour ajouter à la base de données
         public int CreerMessage(string unCorps, DateTime uneDate, int unIdCategVip, int  unIdEvent)
         {
             Message leMessage;

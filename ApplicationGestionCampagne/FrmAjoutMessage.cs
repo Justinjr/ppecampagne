@@ -18,6 +18,20 @@ namespace ApplicationGestionCampagne
         public FrmAjoutMessage()
         {
             InitializeComponent();
+            MessageManager.GetInstance().SetChaineConnexion(ConfigurationManager.ConnectionStrings["GesCampagne"]);
+
+            cbxCampagne.DataSource = CampagneDAO.GetInstanceDAOCampagne().GetCampagnes();
+            cbxCampagne.DisplayMember = "Intitule";
+            cbxCampagne.ValueMember = "Id";
+
+            cbxEvenement.DataSource = EventDAO.GetInstanceDAOEvent().GetEvents();
+            cbxEvenement.DisplayMember = "Theme";
+            cbxEvenement.ValueMember = "Id";
+
+            cbxCategorieVip.DataSource = CategorieVipDAO.GetInstanceCategorieVipDAO().GetCategoriesVip();
+            cbxCategorieVip.DisplayMember = "Libelle";
+            cbxCategorieVip.ValueMember = "Id";
+
         }
     }
 }
