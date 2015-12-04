@@ -40,9 +40,9 @@ namespace GesCampagneDAL
 
             //execute la requete
 
-            maCommand.CommandType = CommandType.StoredProcedure;
-            maCommand.CommandText = "GetVilles";
-            // maCommand.CommandText = "select nom,prenom  from Client ";
+           // maCommand.CommandType = CommandType.StoredProcedure;
+           // maCommand.CommandText = "spGetVilles";
+            maCommand.CommandText = "select numInsee,libelle from Ville";
 
             maCommand.Connection = cnx;
             SqlDataReader monReader = maCommand.ExecuteReader();
