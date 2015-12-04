@@ -14,6 +14,7 @@ namespace GesCampagneDAL
     {
         private static ArtisteDAO uneInstanceArtisteDAO;
 
+
         //cette methode s'appelle un singleton
         //elle crée un objet instance de la classeDAO
         //s'il n'existe pas puis retourne la reference à cet objet
