@@ -40,21 +40,39 @@ namespace ApplicationGestionCampagne
         private void btnAjoutCampagne_Click(object sender, EventArgs e)
         {
             int res = 0;
-            bool ajout = false;
-            if ((int)cbxPublicCampagne.SelectedValue>0 && (int)cbxEmployeCampagne.SelectedValue>0 && dtpDateFinCampagne.Value>dtpDateDebutCampagne.Value && txtNomCampagne.Text!="" && txtObjectifCampagne.Text!="")
+            string messErr = "";
+            if (cbxPublicCampagne.SelectedIndex == -1 || !((int)cbxPublicCampagne.SelectedValue == 0))
+            {
+                messErr += "Veuillez sélectionner le type de public\n";
+            }
+            if (!((int)cbxEmployeCampagne.SelectedValue > 0))
+            {
+                messErr += "Veuillez sélectionner un employé\n";
+            }
+
+
+            //if ((int)cbxPublicCampagne.SelectedValue>0 && (int)cbxEmployeCampagne.SelectedValue>0 && dtpDateFinCampagne.Value>dtpDateDebutCampagne.Value && txtNomCampagne.Text!="" && txtObjectifCampagne.Text!="")
+            if (messErr != "")
             {
                 res = CampagneManager.GetInstance().CreerCampagne(txtNomCampagne.Text, txtObjectifCampagne.Text, dtpDateDebutCampagne.Value, dtpDateFinCampagne.Value, (int)cbxPublicCampagne.SelectedValue, (int)cbxEmployeCampagne.SelectedValue);
 
                 if (res == 1)
                 {
-                    MessageBox.Show("L'enregistrement de la campagne a bien été effectuer");
-                    ajout = true;
+                    MessageBox.Show("L'enregistrement de la campagne a bien été effectué");
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Un problème est survenu lors de l'enregistrement de la campagne");
                 }
             }
-            if(ajout==false)
+            else
             {
-                MessageBox.Show("Un problème est survenu lors de l'enregistrement de la campagne");
+                MessageBox.Show(messErr);
             }
+            
+
+            
 
             
         }
