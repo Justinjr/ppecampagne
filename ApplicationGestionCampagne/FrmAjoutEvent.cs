@@ -50,6 +50,7 @@ namespace ApplicationGestionCampagne
                 MessageBox.Show("l'ajout s'est bien déroulé");
             }
 
+
         }
 
         private void cbxCampagne_SelectedIndexChanged(object sender, EventArgs e)
@@ -60,5 +61,7 @@ namespace ApplicationGestionCampagne
 
 
         }
+
+       
     }
 }

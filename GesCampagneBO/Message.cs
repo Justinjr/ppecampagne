@@ -90,5 +90,6 @@ namespace GesCampagneBO
                 lEvent = value;
             }
         }
+
     }
 }
