@@ -48,5 +48,9 @@ namespace GesCampagneBO
             this.siteWeb = unSiteWeb;
             this.unCourant = unNouvCourant;
         }
+        public Artiste(string unNom)
+        {
+            this.nom = unNom;
+        }
     }
 }
