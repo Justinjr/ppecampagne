@@ -50,9 +50,9 @@ namespace GesCampagneDAL
             {
                  int numInsee = (int)monReader["numInsee"];
                  string libelle = (string)monReader["libelle"];
-                 string cp = (string)monReader["cp"];
+                 
 
-                lesVilles.Add(new Ville(numInsee,libelle, cp));
+                lesVilles.Add(new Ville(numInsee,libelle));
 
             }
 

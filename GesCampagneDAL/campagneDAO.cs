@@ -90,20 +90,16 @@ namespace GesCampagneDAL
 
             //maCommand.CommandType = CommandType.StoredProcedure;
             //maCommand.CommandText = "spGetCampagnes";
-            maCommand.CommandText = "select * from Campagne";
+            maCommand.CommandText = "select Campagne.id,intitule from Campagne";
             maCommand.Connection = cnx;
             SqlDataReader monReader = maCommand.ExecuteReader();
             while (monReader.Read())
             {
                 int id = (int)monReader["id"];
                 string intitule = (string)monReader["intitule"]; 
-                string objectif = (string)monReader["objectif"];
-                DateTime dateDebut = (DateTime)monReader["dateDebut"];
-                DateTime dateFin = (DateTime)monReader["dateFin"];
-                Public idPublic = (Public)monReader["idPublic"];
-                Employe idEmploye = (Employe)monReader["idEmploye"];
+               
 
-                lesCampagnes.Add(new Campagne(intitule,objectif,dateDebut,dateFin,idPublic,idEmploye));
+                lesCampagnes.Add(new Campagne(id,intitule));
 
             }
 

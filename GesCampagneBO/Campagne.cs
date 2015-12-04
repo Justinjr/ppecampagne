@@ -38,6 +38,16 @@ namespace GesCampagneBO
 
         }
 
+        public Campagne(int unId,string unIntitule)
+        {
+            id = unId;
+            intitule = unIntitule;
+           
+
+        }
+
+
+
         public int Id
         {
             get { return id; }
