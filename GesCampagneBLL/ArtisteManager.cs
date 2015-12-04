@@ -43,5 +43,11 @@ namespace GesCampagneBLL
             leArtiste = new Artiste(sonNom, sonSiteWeb,leCourant);
             return ArtisteDAO.GetInstanceArtisteDAO().AjoutArtiste(leArtiste);
         }
+        public int ArtisteExist(string sonNom)
+        {
+            Artiste leArtiste;
+            leArtiste = new Artiste(sonNom);
+            return ArtisteDAO.GetInstanceArtisteDAO().ArtisteExist(leArtiste);
+        }
     }
 }

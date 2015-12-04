@@ -48,9 +48,9 @@ namespace GesCampagneDAL
             //permettant d'obtenir toutes les caractéristiques de tous les artistes
             SqlCommand maCommand = new SqlCommand();
             maCommand.Connection = cnx;
-            maCommand.CommandType = CommandType.StoredProcedure;
-            maCommand.CommandText = "spObtenirArtiste";
-            //maCommand.CommandText = "select * from artiste";
+            //maCommand.CommandType = CommandType.StoredProcedure;
+            //maCommand.CommandText = "spObtenirArtiste";
+            maCommand.CommandText = "select * from artiste";
 
             //on execute la requete
             monLecteur = maCommand.ExecuteReader();
@@ -70,13 +70,8 @@ namespace GesCampagneDAL
             AccesBD.GetInstance().CloseConnection();
             return lesArtistes;
         }
-        //on ajoute l'artiste dans la base de données.Les caractéristiques de l'artiste sont passées
-        //en paramètre (objet unArtiste). La méthode retourne le nombre d'enregistrements
-        //ajoutés
-        public int AjoutArtiste(Artiste unArtiste)
-        {  
-            //SqlDataReader monLecteur;
-
+        public int ArtisteExist(Artiste unArtiste)
+        {
             SqlConnection cnx = AccesBD.GetInstance().GetSqlConnexion();
 
             SqlCommand maCommand = new SqlCommand();
@@ -89,35 +84,42 @@ namespace GesCampagneDAL
             maCommand.Parameters.Add("nom", System.Data.SqlDbType.VarChar);
             maCommand.Parameters[0].Value = unArtiste.Nom;
 
-            //monLecteur = maCommand.ExecuteReader();
-
             int nb = (int)maCommand.ExecuteScalar();
+            //on retourne le nombre d'enregistrement ajoutées
+            //refermer la connection avant chaque return
+            AccesBD.GetInstance().CloseConnection();
+            return nb;
+        }
+        //on ajoute l'artiste dans la base de données.Les caractéristiques de l'artiste sont passées
+        //en paramètre (objet unArtiste). La méthode retourne le nombre d'enregistrements
+        //ajoutés
+        public int AjoutArtiste(Artiste unArtiste)
+        {  
+            //SqlDataReader monLecteur;
 
-            if (nb > 0)
-            {
-                AccesBD.GetInstance().CloseConnection();
-                return 0;
-            }
-            else
-            {
-                    maCommand.Parameters.Clear();
-                    //maCommand.CommandType = CommandType.StoredProcedure;
-                    //maCommand.CommandText = "spAjoutArtiste";
-                    maCommand.CommandText = "insert into dbo.artiste values(@nom,@siteWeb,@idCourant)";
+            SqlConnection cnx = AccesBD.GetInstance().GetSqlConnexion();
 
-                    maCommand.Parameters.Add("nom", System.Data.SqlDbType.VarChar);
-                    maCommand.Parameters[0].Value = unArtiste.Nom;
-                    maCommand.Parameters.Add("siteWeb", System.Data.SqlDbType.VarChar);
-                    maCommand.Parameters[1].Value = unArtiste.SiteWeb;
-                    maCommand.Parameters.Add("idCourant", System.Data.SqlDbType.Int);
-                    maCommand.Parameters[2].Value = unArtiste.UnCourant.Id;
+            SqlCommand maCommand = new SqlCommand();
+            maCommand.Connection = cnx;
+            maCommand.Parameters.Clear();
 
-                    int nbLigne = (int)maCommand.ExecuteNonQuery();
-                //on retourne le nombre d'enregistrement ajoutées
-                //refermer la connection avant chaque return
-                AccesBD.GetInstance().CloseConnection();
-                return nbLigne;
-            }
+            maCommand.Parameters.Clear();
+            //maCommand.CommandType = CommandType.StoredProcedure;
+            //maCommand.CommandText = "spAjoutArtiste";
+            maCommand.CommandText = "insert into dbo.artiste values(@nom,@siteWeb,@idCourant)";
+
+            maCommand.Parameters.Add("nom", System.Data.SqlDbType.VarChar);
+            maCommand.Parameters[0].Value = unArtiste.Nom;
+            maCommand.Parameters.Add("siteWeb", System.Data.SqlDbType.VarChar);
+            maCommand.Parameters[1].Value = unArtiste.SiteWeb;
+            maCommand.Parameters.Add("idCourant", System.Data.SqlDbType.Int);
+            maCommand.Parameters[2].Value = unArtiste.UnCourant.Id;
+
+            int nbLigne = (int)maCommand.ExecuteNonQuery();
+            //on retourne le nombre d'enregistrement ajoutées
+            //refermer la connection avant chaque return
+            AccesBD.GetInstance().CloseConnection();
+            return nbLigne;
             
         }
     }

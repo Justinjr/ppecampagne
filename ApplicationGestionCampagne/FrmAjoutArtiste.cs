@@ -37,18 +37,42 @@ namespace ApplicationGestionCampagne
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult result1 = MessageBox.Show("voulez-vous quand même enregistrer malgrer qu'un artiste existe deja avec le meme nom ? :","Important Question",MessageBoxButtons.YesNo);
-            if (result1 == DialogResult.Yes)
+            //if qui verifie si un artiste exist déja dans la BD
+            int existArtiste = ArtisteManager.GetInstance().ArtisteExist(txtNomArtiste.Text);
+            if (existArtiste >= 1)
             {
-                int res = ArtisteManager.GetInstance().CreerArtiste(txtNomArtiste.Text, txtSiteWeb.Text, (int)cbxCourantArtiste.SelectedValue);
-                if (res > 0)
+                DialogResult result1 = MessageBox.Show("voulez-vous enregistrer malgrer qu'un artiste existe deja avec le meme nom ? :", "Important Question", MessageBoxButtons.YesNo);
+                //demande à l'utilisateur si il veut enregistrer un artiste malgré qu'un autre artiste exist avec le meme nom
+                if (result1 == DialogResult.Yes)
                 {
-                    MessageBox.Show("l'enregistrement c'est bien effectuer");
+                    int res = ArtisteManager.GetInstance().CreerArtiste(txtNomArtiste.Text, txtSiteWeb.Text, (int)cbxCourantArtiste.SelectedValue);
+                    //enregistre dans la BD
 
+                    if (res > 0)
+                    {
+                        MessageBox.Show("Enregistrement réussi");
+                    }
+                    else
+                    {
+                        MessageBox.Show("probleme Enregistrement");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("l'enregistrement ne c'est pas effectuer");
+                    MessageBox.Show("Vous avez refuser l'enregistrement");
+                }
+            }
+            else
+            {
+                int res = ArtisteManager.GetInstance().CreerArtiste(txtNomArtiste.Text, txtSiteWeb.Text, (int)cbxCourantArtiste.SelectedValue);
+                //enregistre dans la BD
+                if (res > 0)
+                {
+                    MessageBox.Show("Enregistrement réussi");
+                }
+                else
+                {
+                    MessageBox.Show("probleme Enregistrement");
                 }
             }
         }

@@ -34,7 +34,7 @@ namespace GesCampagneDAL
 
             maCommand.Parameters.Clear();
             maCommand.CommandType = CommandType.StoredProcedure;
-            maCommand.CommandText = "spCountCampagne";
+            maCommand.CommandText = "spCountCampagne"; 
             //maCommand.CommandText = "select count(*) from Campagne where intitule=@intitule and objectif=@objectif";
             maCommand.Parameters.Add("intitule", System.Data.SqlDbType.VarChar);
             maCommand.Parameters[0].Value = uneCampagne.Intitule;
@@ -50,10 +50,10 @@ namespace GesCampagneDAL
             }
             else
             {
-                //maCommand.CommandType = CommandType.StoredProcedure;
-                //maCommand.CommandText = "lenomdelaprocedure";
                 maCommand.Parameters.Clear();
-                maCommand.CommandText = "insert into Campagne values(@intitule,@objectif,@dateDebut,@dateFin,@idPublic,@idEmploye)";
+                maCommand.CommandType = CommandType.StoredProcedure;
+                maCommand.CommandText = "spAjoutCampagne";
+                //maCommand.CommandText = "insert into Campagne values(@intitule,@objectif,@dateDebut,@dateFin,@idPublic,@idEmploye)";
                 maCommand.Parameters.Add("intitule", System.Data.SqlDbType.VarChar);
                 maCommand.Parameters[0].Value = uneCampagne.Intitule;
                 maCommand.Parameters.Add("objectif", System.Data.SqlDbType.VarChar);
