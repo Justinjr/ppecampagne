@@ -50,6 +50,7 @@
     <Compile Include="MessageManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublicManager.cs" />
+    <Compile Include="ThemeManager.cs" />
     <Compile Include="VilleManager.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -39,7 +39,7 @@
             this.lblDateFin = new System.Windows.Forms.Label();
             this.lblDateDebut = new System.Windows.Forms.Label();
             this.lblCampagne = new System.Windows.Forms.Label();
-            this.txtTheme = new System.Windows.Forms.TextBox();
+            this.cbxTheme = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblErreur
@@ -137,19 +137,20 @@
             this.lblCampagne.TabIndex = 12;
             this.lblCampagne.Text = "Campagne :";
             // 
-            // txtTheme
+            // cbxTheme
             // 
-            this.txtTheme.Location = new System.Drawing.Point(239, 298);
-            this.txtTheme.Name = "txtTheme";
-            this.txtTheme.Size = new System.Drawing.Size(200, 20);
-            this.txtTheme.TabIndex = 24;
+            this.cbxTheme.FormattingEnabled = true;
+            this.cbxTheme.Location = new System.Drawing.Point(239, 297);
+            this.cbxTheme.Name = "cbxTheme";
+            this.cbxTheme.Size = new System.Drawing.Size(200, 21);
+            this.cbxTheme.TabIndex = 24;
             // 
             // FrmAjoutEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(609, 542);
-            this.Controls.Add(this.txtTheme);
+            this.Controls.Add(this.cbxTheme);
             this.Controls.Add(this.lblErreur);
             this.Controls.Add(this.btnAjoutEvent);
             this.Controls.Add(this.dtpDateFin);
@@ -181,6 +182,6 @@
         private System.Windows.Forms.Label lblDateFin;
         private System.Windows.Forms.Label lblDateDebut;
         private System.Windows.Forms.Label lblCampagne;
-        private System.Windows.Forms.TextBox txtTheme;
+        private System.Windows.Forms.ComboBox cbxTheme;
     }
 }

@@ -56,6 +56,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="PublicDAO.cs" />
+    <Compile Include="ThemeDAO.cs" />
     <Compile Include="VilleDAO.cs" />
   </ItemGroup>
   <ItemGroup>

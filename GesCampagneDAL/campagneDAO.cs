@@ -88,9 +88,9 @@ namespace GesCampagneDAL
 
             //execute la requete
 
-            //maCommand.CommandType = CommandType.StoredProcedure;
-            //maCommand.CommandText = "spGetCampagnes";
-            maCommand.CommandText = "select Campagne.id,intitule from Campagne";
+            maCommand.CommandType = CommandType.StoredProcedure;
+            maCommand.CommandText = "spGetCampagnes";
+           // maCommand.CommandText = "select Campagne.id,intitule from Campagne";
             maCommand.Connection = cnx;
             SqlDataReader monReader = maCommand.ExecuteReader();
             while (monReader.Read())

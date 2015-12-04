@@ -81,6 +81,21 @@ namespace GesCampagneBO
             }
         }
 
+        public Theme LeTheme
+        {
+            get
+            {
+                return leTheme;
+            }
+
+            set
+            {
+                leTheme = value;
+            }
+        }
+
+        private Theme leTheme;
+
         public Event(int id,string theme,DateTime dateDebut,DateTime dateFin,Campagne laCampagne, Ville laVille)
         {
             this.id = id;

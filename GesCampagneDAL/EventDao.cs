@@ -42,7 +42,7 @@ namespace GesCampagneDAL
             //execute la requete
 
             maCommand.CommandType = CommandType.StoredProcedure;
-            maCommand.CommandText = "GetEvents";
+            maCommand.CommandText = "spGetEvents";
             // maCommand.CommandText = "select nom,prenom  from Client ";
 
             maCommand.Connection = cnx;

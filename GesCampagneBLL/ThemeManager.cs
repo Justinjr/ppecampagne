@@ -6,21 +6,20 @@ using GesCampagneDAL;
 using System.Configuration;
 using GesCampagneBO;
 
-
 namespace GesCampagneBLL
 {
-    public class VilleManager
+    class ThemeManager
     {
-        private static VilleManager uneInstanceCliManag;
+        private static ThemeManager uneInstanceCliManag;
 
         //cette methode sappelle un singleton
         //elle crée un objet instance de la classe clientManager s'il n'existe pas
         //puis retourne la reference a cet objet
-        public static VilleManager GetInstance()
+        public static ThemeManager GetInstance()
         {
             if (uneInstanceCliManag == null)
             {
-                uneInstanceCliManag = new VilleManager();
+                uneInstanceCliManag = new ThemeManager();
             }
             return uneInstanceCliManag;
         }
@@ -32,12 +31,9 @@ namespace GesCampagneBLL
             AccesBD.GetInstance().SetChaine(laChaine);
         }
         //appel de la couche DAL pour recup une collectionn de client
-        public List<Ville> GetVilles()
+        public List<Theme> GetThemes()
         {
-            return VilleDAO.GetInstanceDAOVille().GetVilles();
+            return ThemeDAO.GetInstanceDAOTheme().GetThemes();
         }
-
-        
-       
     }
 }

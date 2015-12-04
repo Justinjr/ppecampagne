@@ -8,24 +8,23 @@ using GesCampagneDAL;
 using System.Data.SqlClient;
 using System.Data;
 
-
 namespace GesCampagneDAL
 {
-    public class VilleDAO
+    public class ThemeDAO
     {
-        private static VilleDAO uneInstanceVilleDAO;
+        private static ThemeDAO uneInstanceThemeDAO;
 
-        public static VilleDAO GetInstanceDAOVille()
+        public static ThemeDAO GetInstanceDAOTheme()
         {
-            if (uneInstanceVilleDAO == null)
+            if (uneInstanceThemeDAO == null)
 
             {
-                uneInstanceVilleDAO = new VilleDAO();
+                uneInstanceThemeDAO = new ThemeDAO();
             }
-            return uneInstanceVilleDAO;
+            return uneInstanceThemeDAO;
         }
 
-        public List<Ville> GetVilles()
+        public List<Theme> GetThemes()
         {
 
 
@@ -33,7 +32,7 @@ namespace GesCampagneDAL
             SqlConnection cnx = AccesBD.GetInstance().GetSqlConnexion();
 
             //on creer la collection lesClients de type list<Client> qui va contenir les clients
-            List<Ville> lesVilles = new List<Ville>();
+            List<Theme> lesThemes = new List<Theme>();
 
             //crer objet de type sqlCommand
             SqlCommand maCommand = new SqlCommand();
@@ -41,27 +40,24 @@ namespace GesCampagneDAL
             //execute la requete
 
             maCommand.CommandType = CommandType.StoredProcedure;
-            maCommand.CommandText = "spGetVilles";
-            //maCommand.CommandText = "select numInsee,libelle from Ville";
+            maCommand.CommandText = "spGetThemes";
+            
 
             maCommand.Connection = cnx;
             SqlDataReader monReader = maCommand.ExecuteReader();
             while (monReader.Read())
             {
-                 int numInsee = (int)monReader["numInsee"];
-                 string libelle = (string)monReader["libelle"];
-                 
+                int id = (int)monReader["id"];
+                string libelle = (string)monReader["libelle"];
 
-                lesVilles.Add(new Ville(numInsee,libelle));
+
+                lesThemes.Add(new Theme(id, libelle));
 
             }
 
 
             AccesBD.GetInstance().CloseConnection();
-            return lesVilles;
+            return lesThemes;
         }
-
-
     }
-
 }
