@@ -47,6 +47,7 @@ namespace ApplicationGestionCampagne
                 {
                     int res = ArtisteManager.GetInstance().CreerArtiste(txtNomArtiste.Text, txtSiteWeb.Text, (int)cbxCourantArtiste.SelectedValue);
                     //enregistre dans la BD
+
                     if (res > 0)
                     {
                         MessageBox.Show("Enregistrement réussi");
