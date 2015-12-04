@@ -32,7 +32,7 @@ namespace GesCampagneBLL
         {
             Campagne laCampagne;
             Public unPublic = new Public(unIdPublic);
-            Employe unEmploye = new Employe(unIdEmploye); ;
+            Employe unEmploye = new Employe(unIdEmploye);
             laCampagne = new Campagne( unIntitule, unObjectif, uneDateDebut, uneDateFin, unPublic, unEmploye);
             return CampagneDAO.GetInstanceDAOCampagne().AjoutCampagne(laCampagne);
         }
