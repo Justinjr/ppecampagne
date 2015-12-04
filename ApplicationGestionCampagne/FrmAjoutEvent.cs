@@ -49,7 +49,7 @@ namespace ApplicationGestionCampagne
             object res = EventManager.GetInstance().CreerEvent(cbxTheme.Text, dtpDateDebut.MinDate, dtpDateFin.MaxDate, (Campagne)cbxCampagne.SelectedValue, (Ville)cbxVille.SelectedValue);
             if (res == null)
             {
-                MessageBox.Show("l'ajout de l'évenement est erronée");
+                MessageBox.Show("l'ajout de l'évenement est erronée"); 
             }
             else
             {
