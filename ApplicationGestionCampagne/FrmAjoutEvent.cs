@@ -21,21 +21,21 @@ namespace ApplicationGestionCampagne
             EventManager.GetInstance().SetChaineConnexion(ConfigurationManager.ConnectionStrings["GesCampagne"]);
 
             cbxCampagne.DataSource = CampagneDAO.GetInstanceDAOCampagne().GetCampagnes();
-            cbxCampagne.DisplayMember = "unIntitule";
-            cbxCampagne.DisplayMember = "unId";
+            cbxCampagne.DisplayMember = "Intitule";
+            cbxCampagne.ValueMember = "Id";
            // cbxCampagne.Text = "veuillez selectionner une campagne";
             cbxCampagne.SelectedIndex = -1;
 
             cbxVille.DataSource = VilleDAO.GetInstanceDAOVille().GetVilles();
-            cbxVille.DisplayMember = "numInsee";
             cbxVille.DisplayMember = "libelle";
+            cbxVille.ValueMember = "numInsee";
             //cbxVille.Text = "veuillez selectionner une ville";
             cbxVille.SelectedIndex = 0;
 
             cbxTheme.DataSource = ThemeDAO.GetInstanceDAOTheme().GetThemes();
-            cbxTheme.DisplayMember = "id";
             cbxTheme.DisplayMember = "libelle";
-           // cbxTheme.Text = "veuillez selectionner un theme";
+            cbxTheme.ValueMember = "id";
+            // cbxTheme.Text = "veuillez selectionner un theme";
             cbxTheme.SelectedIndex = 0;
 
 
@@ -46,27 +46,36 @@ namespace ApplicationGestionCampagne
 
         private void btnAjoutEvent_Click(object sender, EventArgs e)
         {
-            object res = EventManager.GetInstance().CreerEvent(cbxTheme.Text, dtpDateDebut.MinDate, dtpDateFin.MaxDate, (Campagne)cbxCampagne.SelectedValue, (Ville)cbxVille.SelectedValue);
-            if (res == null)
+            if ((int)cbxTheme.SelectedValue > -1 && dtpDateFin.Value > dtpDateDebut.Value && (int)cbxCampagne.SelectedValue > -1 && (int)cbxVille.SelectedValue > -1 )
             {
-                MessageBox.Show("l'ajout de l'évenement est erronée"); 
+                if (dtpDateFin.Value.Day - dtpDateDebut.Value.Day <= 3)
+                {
+
+
+                    int res = EventManager.GetInstance().CreerEvent((int)cbxTheme.SelectedValue, dtpDateDebut.Value, dtpDateFin.Value, (int)cbxCampagne.SelectedValue, (int)cbxVille.SelectedValue);
+                    if (res == 0)
+                    {
+                        MessageBox.Show("l'ajout de l'évenement est erronée");
+                    }
+                    else
+                    {
+                        MessageBox.Show("l'ajout s'est bien déroulé");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("l'évenement ne peut pas se dérouler sur une periode de plus de 3 jours");
+                }
             }
-            else
-            {
-                MessageBox.Show("l'ajout s'est bien déroulé");
-            }
+            
+
+            
+
 
 
         }
 
-        private void cbxCampagne_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cbxCampagne.DataSource = CampagneDAO.GetInstanceDAOCampagne().GetCampagnes();
-            cbxCampagne.DisplayMember = "intitule";
-            cbxCampagne.ValueMember = "id";
-
-
-        }
+       
 
        
     }

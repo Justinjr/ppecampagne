@@ -46,6 +46,14 @@ namespace GesCampagneBO
 
         }
 
+        public Campagne(int unId)
+        {
+            id = unId;
+           
+
+
+        }
+
 
 
         public int Id

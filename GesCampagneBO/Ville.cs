@@ -44,5 +44,11 @@ namespace GesCampagneBO
             this.libelle = libelle;
             
         }
+        public Ville(int numInsee)
+        {
+            this.numInsee = numInsee;
+           
+
+        }
     }
 }

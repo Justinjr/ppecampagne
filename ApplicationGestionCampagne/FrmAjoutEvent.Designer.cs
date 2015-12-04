@@ -90,7 +90,6 @@
             this.cbxCampagne.Name = "cbxCampagne";
             this.cbxCampagne.Size = new System.Drawing.Size(200, 21);
             this.cbxCampagne.TabIndex = 17;
-            this.cbxCampagne.SelectedIndexChanged += new System.EventHandler(this.cbxCampagne_SelectedIndexChanged);
             // 
             // lblVille
             // 

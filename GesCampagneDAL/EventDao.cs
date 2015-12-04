@@ -50,7 +50,7 @@ namespace GesCampagneDAL
             while (monReader.Read())
             {
                 int id = (int)monReader["id"];
-                string theme = (string)monReader["theme"];
+                Theme theme = (Theme)monReader["theme"];
                 DateTime dateDebut = (DateTime)monReader["dateDebut"];
                 DateTime dateFin = (DateTime)monReader["dateFin"];
                 Campagne laCampagne = (Campagne)monReader["idCampagne"];
@@ -85,15 +85,18 @@ namespace GesCampagneDAL
             maCommand.Connection = cnx;
             maCommand.Parameters.Clear();
             maCommand.CommandType = CommandType.StoredProcedure;
-            maCommand.CommandText = "selectEvent";
+            maCommand.CommandText = "spSelectEvent";
 
 
-            // maCommand.CommandText = "select Count(*) from Evenement where idCampagne=@idCampagne and  idVille=@idVille  ";
+           // maCommand.CommandText = "select Count(*) from Evenement where idCampagne=@idCampagne and  idVille=@idVille and idTheme=@idTheme ";
 
             maCommand.Parameters.Add("idCampagne", System.Data.SqlDbType.Int);
             maCommand.Parameters[0].Value = unEvent.LaCampagne.Id;
             maCommand.Parameters.Add("idVille", System.Data.SqlDbType.Int);
             maCommand.Parameters[1].Value = unEvent.LaVille.NumInsee;
+            maCommand.Parameters.Add("idTheme", System.Data.SqlDbType.Int);
+            maCommand.Parameters[2].Value = unEvent.Theme.Id;
+
 
             int nb = (int)maCommand.ExecuteScalar();
 
@@ -107,16 +110,16 @@ namespace GesCampagneDAL
                 maCommand.Parameters.Clear();
                 //maCommand.CommandText = "insert into Evenement values(@theme,@Campagne,@dateDebut,@dateFin,@Ville)";
                 maCommand.CommandType = CommandType.StoredProcedure;
-                maCommand.CommandText = "ajoutEvent";
+                maCommand.CommandText = "spAjoutEvent";
 
-                maCommand.Parameters.Add("theme", System.Data.SqlDbType.VarChar);
-                maCommand.Parameters[0].Value = unEvent.Theme;
+                maCommand.Parameters.Add("idTheme", System.Data.SqlDbType.Int);
+                maCommand.Parameters[0].Value = unEvent.Theme.Id;
                 maCommand.Parameters.Add("dateDebut", System.Data.SqlDbType.VarChar);
-                maCommand.Parameters[2].Value = unEvent.DateDebut;
+                maCommand.Parameters[1].Value = unEvent.DateDebut;
                 maCommand.Parameters.Add("dateFin", System.Data.SqlDbType.VarChar);
-                maCommand.Parameters[3].Value = unEvent.DateFin;
+                maCommand.Parameters[2].Value = unEvent.DateFin;
                 maCommand.Parameters.Add("idCampagne", System.Data.SqlDbType.Int);
-                maCommand.Parameters[1].Value = unEvent.LaCampagne.Id;
+                maCommand.Parameters[3].Value = unEvent.LaCampagne.Id;
                 maCommand.Parameters.Add("idVille", System.Data.SqlDbType.Int);
                 maCommand.Parameters[4].Value = unEvent.LaVille.NumInsee;
 

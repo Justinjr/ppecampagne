@@ -9,7 +9,7 @@ namespace GesCampagneBO
     public class Event
     {
         private int id;
-        private string theme;
+        private Theme theme;
         private DateTime dateDebut;
         private DateTime dateFin;
         private string sonNom;
@@ -35,11 +35,7 @@ namespace GesCampagneBO
             set { id = value; }
         }
 
-        public string Theme
-        {
-            get { return theme; }
-            set { theme = value; }
-        }
+        
        
 
         public DateTime DateDebut
@@ -81,34 +77,32 @@ namespace GesCampagneBO
             }
         }
 
-        public Theme LeTheme
+        public Theme Theme
         {
             get
             {
-                return leTheme;
+                return theme;
             }
 
             set
             {
-                leTheme = value;
+                theme = value;
             }
         }
 
-        private Theme leTheme;
-
-        public Event(int id,string theme,DateTime dateDebut,DateTime dateFin,Campagne laCampagne, Ville laVille)
+        public Event(int id,Theme theme,DateTime dateDebut,DateTime dateFin,Campagne laCampagne, Ville laVille)
         {
             this.id = id;
-            this.theme = theme;
+            this.Theme = theme;
             this.dateDebut = dateDebut;
             this.dateFin = dateFin;
             this.LaVille=laVille;
             this.LaCampagne=laCampagne;
         }
 
-        public Event(string theme, DateTime dateDebut, DateTime dateFin,Campagne laCampagne, Ville laVille)
+        public Event(Theme theme, DateTime dateDebut, DateTime dateFin,Campagne laCampagne, Ville laVille)
         {
-            this.theme = theme;
+            this.Theme = theme;
             this.dateDebut = dateDebut;
             this.dateFin = dateFin;
             this.LaVille=laVille;

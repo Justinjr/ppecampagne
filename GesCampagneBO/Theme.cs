@@ -41,5 +41,11 @@ namespace GesCampagneBO
             this.id = id;
             this.libelle = libelle;
         }
+
+        public Theme(int id)
+        {
+            this.id = id;
+            
+        }
     }
 }
