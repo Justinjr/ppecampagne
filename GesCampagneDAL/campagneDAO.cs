@@ -66,7 +66,7 @@ namespace GesCampagneDAL
                 maCommand.Parameters[4].Value = uneCampagne.IdPublic.Id;
                 maCommand.Parameters.Add("idEmploye", System.Data.SqlDbType.Int);
                 maCommand.Parameters[5].Value = uneCampagne.IdEmploye.Id;
-
+                 
 
                 int nb = (int)maCommand.ExecuteNonQuery();
 
