@@ -29,7 +29,7 @@ namespace GesCampagneBO
         {
             get { return cp; }
             set { cp = value; }
-        }
+         }
 
         public Ville(int numInsee, string libelle, string cp)
         {
